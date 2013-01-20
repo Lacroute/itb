@@ -8,8 +8,8 @@ class App{
 		return 'Zboub !';
 	}
 
-	function getTravel(){
-		return 'Travel';
+	function getDashboard(){
+		return 'Dashboard';
 	}
 
 	function __destruct(){

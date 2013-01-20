@@ -1,5 +1,5 @@
 <?php
-class App_controller{
+class AppController{
 	
 	function __construct(){
 
@@ -10,14 +10,14 @@ class App_controller{
 		F3::set('title', $App->getYo());
 
 		$View = new View();
-		echo $View->render('travelr.html');
+		echo $View->render('inthabrain.html');
 	}
 
-	function travel(){
+	function dashboard(){
 		$App = new App();
-		F3::set('title', $App->getTravel());
+		F3::set('title', $App->getDashboard());
 
-		echo View::instance()->render('travelr.html');
+		echo View::instance()->render('dashboard.html');
 	}
 
 	function doc(){
