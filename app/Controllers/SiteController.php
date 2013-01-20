@@ -9,8 +9,7 @@ class AppController{
 		$App = new App();
 		F3::set('title', $App->getYo());
 
-		$View = new View();
-		echo $View->render('inthabrain.html');
+		echo View::instance()->render('inthabrain.html');
 	}
 
 	function dashboard(){
