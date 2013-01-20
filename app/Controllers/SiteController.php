@@ -1,20 +1,18 @@
 <?php
-class AppController{
+class SiteController{
 	
 	function __construct(){
 
 	}
 
 	function home(){
-		$App = new App();
-		F3::set('title', $App->getYo());
+		F3::set('title', 'In Tha Brain');
 
 		echo View::instance()->render('inthabrain.html');
 	}
 
 	function dashboard(){
-		$App = new App();
-		F3::set('title', $App->getDashboard());
+		F3::set('title', 'Dashboard');
 
 		echo View::instance()->render('dashboard.html');
 	}
