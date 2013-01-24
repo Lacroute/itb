@@ -7,6 +7,10 @@ class SiteController{
 
 	function home(){
 		F3::set('title', 'In Tha Brain');
+		   
+		   
+		   
+		   
 
 		echo View::instance()->render('inthabrain.html');
 	}
