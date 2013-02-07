@@ -1,8 +1,8 @@
 <?php
 $f3 = require('library/base.php');
 
-$f3->config('config/globals.cfg');
-$f3->config('config/routes.cfg');
+$f3->config('config/globals.ini');
+$f3->config('config/routes.ini');
 
 // On set la DB
 // $db=new DB\SQL(

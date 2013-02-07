@@ -1,4 +1,6 @@
 <?php
+
+namespace itbControllers;
 class BrainController{
 	
 	function __construct(){

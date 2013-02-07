@@ -1,4 +1,6 @@
 <?php
+
+namespace itbControllers;
 class UserController{
 	
 	function __construct(){
