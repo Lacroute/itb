@@ -2,10 +2,9 @@
 <html>
 <head>
 	<title>Register</title>
-	<base href="http://localhost:8888/itb" />
 </head>
 <body>
-	<form action="http://localhost:8888/itb/user/new" method="POST">
+	<form action="" method="post">
 		<label>Pseudo</label>
 		<input type="text" name="pseudo" />
 		<label>Email</label>

@@ -6,6 +6,15 @@ class UserController{
 	}
 
 	function register(){
+		switch(F3::get('VERB')){
+		case 'GET':
+        	echo Views::instance()->render('register.php');
+      		break;
+      	case 'POST':
+      		echo "string";
+      		break;
+      	}
+      /*
 		if($_POST){
 			// $data = array(
 			// 	"pseudo" => $_POST['pseudo'],
@@ -20,6 +29,7 @@ class UserController{
 		}else{
 			echo Views::instance()->render('register.php');
 		}
+		*/
 	}
 
 	function login(){
