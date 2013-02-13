@@ -19,9 +19,16 @@ class UserModel extends Prefab{
 		return true;
 	}
 
-	//on passe a cette fonction un tableau de donnée. Si l'id est présent, 
+	//on passe a cette fonction un tableau de donnée. Si l'id est présent, il retourne les infos du 
 	function getUser($data){
+		if(isset($data['idUser'])){
 
+		}elseif (isset($data['email']) && isset($data['password'])) {
+			$user=new DB\SQL\Mapper(F3::get('dB'),'user');
+			$user->load(array('email=? AND password=?',$data['email'],$data['password']));
+			var_dump($user);
+			die();
+		}
 	}
 
 	function updateUser($data){
