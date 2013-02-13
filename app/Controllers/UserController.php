@@ -11,7 +11,16 @@ class UserController{
         	echo Views::instance()->render('register.php');
       		break;
       	case 'POST':
-      		echo "string";
+      		$data = array(
+				"pseudo" => $_POST['pseudo'],
+				"email" => $_POST['email'],
+				"password" => $_POST['password'],
+			);
+			$addUser = UserModel::instance()->addUser($data);
+			if($addUser){
+				//si l'insertion a fonctionné
+			}
+			echo "ok";
       		break;
       	}
       /*
@@ -42,6 +51,14 @@ class UserController{
 
 	function edit($id){
 		
+	}
+
+	function delete(){
+		$id = F3::get('PARAMS.id');
+		$deleteUser = UserModel::instance()->removeUser($id);
+		if($deleteUser){
+			echo "User has been removed";
+		}
 	}
 
 	function __destruct(){

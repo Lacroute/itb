@@ -6,7 +6,7 @@ class UserModel extends Prefab{
 	}
 
 	function addUser($data){
-		$user=new Axon('user');
+		$user=new DB\SQL\Mapper(F3::get('dB'),'user');
 		//load in the article, set new values then save
 		//if we don't load it first Axon will do an insert instead of update when we use save command
 		//if ($id) $article->load("id='$id'");
@@ -28,7 +28,10 @@ class UserModel extends Prefab{
 	}
 
 	function removeUser($id){
-
+		$user=new DB\SQL\Mapper(F3::get('dB'),'user');
+		$user->load(array('idUser=?',$id));
+		$user->erase();
+		return true;
 	}
 
 	function __destruct(){
