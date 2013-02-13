@@ -54,10 +54,9 @@ class UserController{
 			);
 			$getUser = UserModel::instance()->getUser($data);
 			if($getUser){
-				F3::set("SESSION.test", $getUser);
-				var_dump(F3::get('SESSION.test'));
+				F3::set("SESSION.user", $getUser);
+				F3::reroute("/dashboard");
 			}
-			echo "ok";
       		break;
       	}
 	}

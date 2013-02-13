@@ -1,6 +1,5 @@
 <?php
 
-namespace itbControllers;
 class SiteController{
 	
 	function __construct(){
