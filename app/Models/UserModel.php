@@ -19,7 +19,8 @@ class UserModel extends Prefab{
 		return true;
 	}
 
-	function getUser($id){
+	//on passe a cette fonction un tableau de donnée. Si l'id est présent, 
+	function getUser($data){
 
 	}
 

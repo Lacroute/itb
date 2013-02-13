@@ -42,7 +42,22 @@ class UserController{
 	}
 
 	function login(){
-
+		switch(F3::get('VERB')){
+		case 'GET':
+        	echo Views::instance()->render('login.php');
+      		break;
+      	case 'POST':
+      		$data = array(
+				"email" => $_POST['email'],
+				"password" => $_POST['password'],
+			);
+			$addUser = UserModel::instance()->addUser($data);
+			if($addUser){
+				//si l'insertion a fonctionné
+			}
+			echo "ok";
+      		break;
+      	}
 	}
 
 	function logout(){
