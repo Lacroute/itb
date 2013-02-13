@@ -25,8 +25,10 @@ class UserModel extends Prefab{
 
 		}elseif (isset($data['email']) && isset($data['password'])) {
 			$user=new DB\SQL\Mapper(F3::get('dB'),'user');
-			$user->load(array('email=? AND password=?',$data['email'],$data['password']));
+			$user->load(array('email=? AND password=?',$data['email'],md5($data['password']));
+			echo "<pre>";
 			var_dump($user);
+			echo "</pre>";
 			die();
 		}
 	}
