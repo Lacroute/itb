@@ -27,7 +27,7 @@ class UserModel extends Prefab{
 			$user=new DB\SQL\Mapper(F3::get('dB'),'user');
 			$user->load(array('email=? AND password=?',$data['email'],md5($data['password'])));
 			if($user->email){
-				return true;
+				return $user;
 			}else{
 				return false;
 			}
