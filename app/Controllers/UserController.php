@@ -19,6 +19,7 @@ class UserController{
 			$addUser = UserModel::instance()->addUser($data);
 			if($addUser){
 				//si l'insertion a fonctionné
+				$this->login();
 			}
 			echo "ok";
       		break;
@@ -51,9 +52,10 @@ class UserController{
 				"email" => $_POST['email'],
 				"password" => $_POST['password'],
 			);
-			$addUser = UserModel::instance()->addUser($data);
-			if($addUser){
+			$getUser = UserModel::instance()->getUser($data);
+			if($getUser){
 				//si l'insertion a fonctionné
+				echo "ZBOUB";
 			}
 			echo "ok";
       		break;
