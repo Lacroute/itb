@@ -23,8 +23,24 @@
     	<nav><a href="">In Tha Brain</a></nav>
 	</header>
 	<section>
+		<form action="" method="post">
+			<label>Search</label>
+			<input type="search" name="baseWord" />
+			<input type="submit" value="Search" /> 
+		</form>
 		<fieldset>
-		<h1>Ici mon dashboard</h1>
+			<h1>Ici mon dashboard</h1>
+			<?php
+			if (F3::get('synonyms')) {
+				echo "
+				<fieldset>
+					<h1>Résultat de la recherche</h1>
+					";
+				var_dump(F3::get('synonyms'));
+				echo"
+				</fieldset>";
+			}
+			?>
 		</fieldset>
 		<fieldset>
 			<h1>Zboubification</h1>

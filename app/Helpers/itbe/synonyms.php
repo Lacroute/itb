@@ -11,10 +11,7 @@ class Synonyms extends api{
 	function search($keyword){
 		$apiKey = "8e53955ed20a9f608e3e0d99ac330a23";
 		$request = \Web::instance()->request('http://words.bighugelabs.com/api/2/'.$apiKey.'/'.$keyword.'/json ');
-		/*var_dump($request);
-		echo "<br/>";*/
-		var_dump(json_decode($request['body']));
-
+		return json_decode($request['body']);
 	}
 }
 ?>

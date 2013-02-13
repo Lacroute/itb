@@ -18,8 +18,7 @@ class SiteController{
 
 	function dashboard(){
 		F3::set('title', 'Dashboard');
-		$synonyms = new itbe\synonyms();
-		$synonyms->search('love');
+
 
 		echo View::instance()->render('dashboard.html');
 	}
