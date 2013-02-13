@@ -54,8 +54,8 @@ class UserController{
 			);
 			$getUser = UserModel::instance()->getUser($data);
 			if($getUser){
-				echo "ZBOUB";
-				F3::set("SESSION.test", 'A session exists!!!!');
+				F3::set("SESSION.test", $data);
+				var_dump(F3::get('SESSION.test'));
 			}
 			echo "ok";
       		break;
