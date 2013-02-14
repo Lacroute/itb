@@ -15,6 +15,9 @@ class Lycos{
 	    $dribble = new itbe\Dribble();
 		F3::set('dribble', $dribble->search($keyword));
 
+		$pinterest = new itbe\Dribble();
+		F3::set('pinterest', $pinterest->search($keyword));
+
 	    echo View::instance()->render('dashboard.html');
 	}
 
