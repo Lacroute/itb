@@ -23,8 +23,7 @@ class UserController{
 				"email" => F3::get('POST.email'),
 				"password" => F3::get('POST.password'),
 			);
-			$addUser = UserModel::instance()->addUser($data);
-			if($addUser){
+			if($addUser = UserModel::instance()->addUser($data)){
 				$this->login();
 			}
       		break;
@@ -44,13 +43,15 @@ class UserController{
 	          echo Views::instance()->render('login.php');
 	          return;
 	        }
-	        if($user = UserModel::instance()->getUser(F3::get('POST.email'),F3::get('POST.password'))){
-	          F3::set('SESSION.idUser',$user->id);
-	          F3::set('SESSION.pseudo',$user->firstname);
+	        $data = array(
+	        	'email' => F3::get('POST.email'),
+	        	'password' => F3::get('POST.password')
+	        );
+	        if($user = UserModel::instance()->getUser($data)){
+	          F3::set('SESSION.idUser',$user['idUser']);
+	          F3::set('SESSION.pseudo',$user['pseudo']);
 	          F3::reroute('/dashboard');
 	          return;
-	        }else{
-	        	var_dump($user);
 	        }
 	        F3::set('errorMsg',array('email'=>true,'password'=>true));
 	        echo Views::instance()->render('login.php');
