@@ -11,5 +11,6 @@
 		<input type="password" name="password" />
 		<input type="submit" value="Connect" /> 
 	</form>
+	<?php var_dump(F3::get('errorMsg'));?>
 </body>
 </html>
