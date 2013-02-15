@@ -5,7 +5,14 @@ class Admin_controller{
   {
      
   }
-  
+    
+  function beforeroute(){
+      if(!isset(F3::get('SESSION.idUser'))){
+          F3::reroute('/login');
+      }
+  }
+
+
   function dashboard(){
     
     F3::set('location',Admin::instance()->getAllLocations());

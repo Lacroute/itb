@@ -22,8 +22,14 @@
   <header>
     <nav>
         <a href="">In Tha Brain</a>
-        <a href="login">Login</a>
-        <a href="register">Register</a>
+        <?php 
+        $session = F3::get('SESSION.idUser');
+        if(!isset($session)): ?>
+          <a href="login">Login</a>
+          <a href="register">Register</a>
+        <?php else: ?>
+          <a href="logout">Logout</a>
+        <?php endif; ?>
     </nav>
   </header>
 </body>
