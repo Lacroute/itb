@@ -14,9 +14,7 @@ class Admin_controller{
 
 
   function dashboard(){
-    
-    F3::set('location',Admin::instance()->getAllLocations());
-    echo Views::instance()->render('admin/travels.html');
+
     
     /*$model=new Admin();
     $location=$model->getAllLocation();

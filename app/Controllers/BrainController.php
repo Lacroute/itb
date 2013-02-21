@@ -1,29 +1,20 @@
 <?php
-
-namespace itbControllers;
 class BrainController{
 	
 	function __construct(){
 
 	}
 
-	function new(){
+	function create(){
 		switch(F3::get('VERB')){
 		case 'GET':
         	echo Views::instance()->render('new_brain.php');
       		break;
       	case 'POST':
-      		//TODO => traiter les données du nouveau brainqsto et créer dossier (mkdir) dans BainModel
       		$data = array(
-				"pseudo" => $_POST['pseudo'],
-				"email" => $_POST['email'],
-				"password" => $_POST['password'],
+				"name" => F3::get('POST.brain_name'),
 			);
-			$addUser = UserModel::instance()->addUser($data);
-			if($addUser){
-				//si l'insertion a fonctionné
-				$this->login();
-			}
+			$addBrain = BrainModel::instance()->addBrain($data);
 			echo "ok";
       		break;
       	}

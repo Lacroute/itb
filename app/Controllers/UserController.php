@@ -60,6 +60,11 @@ class UserController{
 	}
 
 	function logout(){
+		echo '<pre>';
+		//print_r(F3::get('SESSION.user'));
+		echo '</pre>';
+		//print_r(F3::hive());
+		session_start();
 		session_destroy();
 		F3::reroute(F3::get('baseUrl'));
 	}

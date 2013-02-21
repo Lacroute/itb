@@ -9,7 +9,7 @@ class SiteController{
 	function home(){
 		F3::set('title', 'In Tha Brain');
 		   
-		   
+		
 		   
 		   
 
@@ -19,8 +19,8 @@ class SiteController{
 	function dashboard(){
 		F3::set('title', 'Dashboard');
 
-
-		echo View::instance()->render('dashboard.html');
+		F3::set('brains',BrainModel::instance()->listBrains(F3::get('SESSION.idUser')));
+		echo Views::instance()->render('admin/dashboard.html');
 	}
 
 	function doc(){
