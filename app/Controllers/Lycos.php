@@ -18,6 +18,9 @@ class Lycos{
 		$pinterest = new itbe\Dribble();
 		F3::set('pinterest', $pinterest->search($keyword));
 
+		$news = new itbe\News();
+		F3::set('news', $news->search($keyword));
+
 	    echo View::instance()->render('dashboard.html');
 	}
 
