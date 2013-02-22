@@ -10,16 +10,18 @@ class Lycos{
 		$keyword = $_POST['baseWord'];
 
 		$synonyms = new itbe\Synonyms();
-	    F3::set('synonyms', $synonyms->search($keyword));
-
 	    $dribble = new itbe\Dribble();
-		F3::set('dribble', $dribble->search($keyword));
-
-		$pinterest = new itbe\Dribble();
-		F3::set('pinterest', $pinterest->search($keyword));
-
+		$pinterest = new itbe\Pinterest();
 		$news = new itbe\News();
-		F3::set('news', $news->search($keyword));
+
+		$f3->mset(
+		    array(
+		        'synonyms'=>$synonyms->search($keyword),
+		        'dribble'=>$dribble->search($keyword),
+		        'pinterest'=>$pinterest->search($keyword),
+		        'news'=>$news->search($keyword)
+		    )
+		);
 
 	    echo View::instance()->render('dashboard.html');
 	}
