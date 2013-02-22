@@ -1,6 +1,6 @@
 <?php
 
-class Lycos{
+class SearchController{
 	
 	function __construct(){
 
@@ -24,7 +24,7 @@ class Lycos{
 		);
 
 		echo 'yep';
-	    echo View::instance()->render('dashboard.html');
+	    echo View::instance()->render('admin/dashboard.html');
 	}
 
 	function __destruct(){
