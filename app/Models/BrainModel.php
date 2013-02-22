@@ -31,6 +31,7 @@ class BrainModel extends Prefab{
 	}
 
 	function listBrains($idUser){
+		print_r(F3::get('dB'));
 		$brains=new DB\SQL\Mapper(F3::get('dB'),'contributors');
 		$brains->dB->exec("SELECT idUser FROM contributors");
 		print_r($brains);
