@@ -1,5 +1,5 @@
 <?php
-class Admin_controller{
+class AdminController{
 
   function __construct()
   {
@@ -7,23 +7,17 @@ class Admin_controller{
   }
     
   function beforeroute(){
-      if(!isset(F3::get('SESSION.idUser'))){
-          F3::reroute('/login');
-      }
+      // if(!isset(F3::get('SESSION.idUser'))){
+      //     F3::reroute('/login');
+      // }
   }
 
 
   function dashboard(){
+    F3::set('title', 'Dashboard');
 
-    
-    /*$model=new Admin();
-    $location=$model->getAllLocation();
-    F3::set('location',$location);
-    $view=new Views();
-    echo $view->render('admin/travels.html');*/
-    
-    
-    
+    F3::set('brains',BrainModel::instance()->listBrains(F3::get('SESSION.idUser')));
+    echo Views::instance()->render('admin/dashboard.html');
   }
   
   function create(){
