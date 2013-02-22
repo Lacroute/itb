@@ -7,14 +7,14 @@ class SearchController{
 	}
 
 	function search(){
-		$keyword = $_POST['baseWord'];
+		$keyword = F3::get('PARAMS.baseWord');
 
 		$synonyms = new itbe\Synonyms();
 	    $dribble = new itbe\Dribble();
 		$pinterest = new itbe\Pinterest();
 		$news = new itbe\News();
 
-		$f3->mset(
+		F3::mset(
 		    array(
 		        'synonyms'=>$synonyms->search($keyword),
 		        'dribble'=>$dribble->search($keyword),
