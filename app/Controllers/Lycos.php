@@ -23,6 +23,7 @@ class Lycos{
 		    )
 		);
 
+		echo 'yep';
 	    echo View::instance()->render('dashboard.html');
 	}
 
