@@ -14,16 +14,21 @@ $(document).ready(function() {
 		$(this).toggleClass('big');
 	});
 
+	$('nav a.twitter').click(function(){
+		$('#column1').toggleClass('big');
+	});
+
+	$('nav a:nth-child(n+2)').click(function(){
+		$('#column1').removeClass('big');
+	});
+
+	/*$('#column5 dl dd:nth-child(3)').addClass('smaller');
+
 	$('#column5 .slide').each(function(){
 		$(this).click(function(){
 			var size = $(this).prev();
-			if(size.height()=='110'){
-				var test = size.height('100%');
-				size.animate({height: test + 'px'}, 'slow');
-				//size.height('100%');
-			}else{
-				size.animate({height:'110px'}, 'slow');
-			}
+			size.toggleClass('smaller');
 		});
-	});
+	});*/
+
 });

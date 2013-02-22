@@ -494,6 +494,44 @@ article {
   transition: width .1s ease-in;
 }
 
+::-webkit-scrollbar-track {
+  background: rgba(39, 39, 39, 0.3)
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+#column1::-webkit-scrollbar-thumb {
+background: #777777;
+cursor:pointer;
+}
+
+#column2::-webkit-scrollbar-thumb {
+background: #777777;
+cursor:pointer;
+}
+
+#column3::-webkit-scrollbar-thumb {
+background: #777777;
+cursor:pointer;
+}
+
+#column4::-webkit-scrollbar-thumb {
+background: #777777;
+cursor:pointer;
+}
+
+#column5::-webkit-scrollbar-thumb {
+background: #777777;
+cursor:pointer;
+}
+
+#column6::-webkit-scrollbar-thumb {
+background: #777777;
+cursor:pointer;
+}
+
 .big {
   width:800px;
   -webkit-transition: width .3s ease-in;
@@ -721,23 +759,23 @@ dd, dt {
   margin-right:20px;
 }
 
-#column5 dl dd:nth-child(3){
+.smaller {
   height:110px;
   overflow:hidden;
-  -webkit-transition: width .3s ease-in;
-  -moz-transition: width .3s ease-in;
-  -ms-transition: width .3s ease-in;
-  -o-transition: width .3s ease-in;
-  transition: width .3s ease-in;
+  -webkit-transition: width .1s ease-in;
+  -moz-transition: width .1s ease-in;
+  -ms-transition: width .1s ease-in;
+  -o-transition: width .1s ease-in;
+  transition: width .1s ease-in;
 }
 
-.fuck {
-  height:100% !important;
-  -webkit-transition: width .3s ease-in;
-  -moz-transition: width .3s ease-in;
-  -ms-transition: width .3s ease-in;
-  -o-transition: width .3s ease-in;
-  transition: width .3s ease-in;
+#column5 dl dd:nth-child(3) {
+  overflow:auto
+  -webkit-transition: width .1s ease-in;
+  -moz-transition: width .1s ease-in;
+  -ms-transition: width .1s ease-in;
+  -o-transition: width .1s ease-in;
+  transition: width .1s ease-in;
 }
 
 #column5 .slide {
@@ -748,4 +786,22 @@ dd, dt {
   margin:0 auto;
   margin-top:20px;
   cursor:pointer;
+}
+
+/**********POSTS SYNONYMES**********/
+
+#column6 dl {
+  border-bottom:2px solid #59d22f;
+}
+
+#column6 dl a {
+  color:#59d22f;
+}
+
+#column6 dl dd:hover {
+  padding:2px 5px;
+  font-size:24px;
+  cursor:pointer;
+  background:#272727 url(http://placehold.it/21x19) center right no-repeat;
+  color:white;
 }
