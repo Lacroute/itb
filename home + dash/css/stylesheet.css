@@ -5,12 +5,21 @@ p { font-size: 73%;}
 .cl { clear: both;}
 .sep { height: 2px; width: 780px; background: #d5d5d5; margin: 3px auto;}
 
-header { position: absolute; top:0; background: rgba(0,0,0,0.2); width: 100%; height: 60px; }
-header nav{ width: 780px; margin: 0 auto; padding: 10px 0; height: 40px; }
+#connect { background:#fff23a; height:10px; width:100%; text-align:center; padding:5px 0 35px;color:#262626;margin-top:-50px;}
+#connect a { color:#262626;text-decoration:none; font-family: 'Arvo', serif; font-size:14px;}
+#connect a:hover { font-weight:bold; background:#1A1A1A; padding:18px 10px 16px; line-height:14px; color:#fff23a;}
+#connect a:first-child { margin-right:20px;}
+#connect a:last-child { margin-left :20px; }
+#connect a:first-child:hover { margin-right:0px;}
+#connect a:last-child:hover { margin-left :0px; }
+.connect { margin-top:0 !important;  -webkit-transition: all .6s ease-in; -moz-transition: all .6s ease-in; -o-transition: all .6s ease-in; transition: all .6s ease-in;}
+
+header { background: rgba(0,0,0,0.9); width: 100%; height: 60px; }
+header nav{ width: 960px; margin: 0 auto; padding: 10px 0; height: 40px; }
 header nav h1{ margin : 0; width: 360px; float: left; }
 header nav h1 a { text-decoration: none; font-size:23px; font-family: 'Arvo', serif; color :#404040;}
 header nav h1 a:hover { color: #fff23a;  }
-header nav ul { float: right; width:  360px; height: 30px; margin: 10px 20px; padding :2px; }
+header nav ul { float: right; height: 30px; margin: 10px 20px; padding :2px; }
 header nav ul li { float: left; margin: 0 10px; }
 header nav ul li a{ padding: 5px 10px; color: rgba(255,255,255,0.5);border: 1px solid rgba(255,255,255,0);border-radius: 20px; }
 header nav ul li a:hover{ border: 1px solid #fff;border-radius: 20px; color:#fff;}
@@ -19,8 +28,9 @@ header nav ul li a:hover{ border: 1px solid #fff;border-radius: 20px; color:#fff
 #board h2 { padding-top: 220px; width: 960px; text-align: center; margin: 0 auto; color:#404040;}
 #board p { width: 750px; text-align: center; margin: 0 auto; color:#404040;}
 
-#main_info { padding:30px 70px; width: 840px; margin: 0 auto; height: 340px; }
-.info { width:  220px; margin: 0 30px 10px; float: left;}
+#main_info { padding:30px 70px; width: 840px; margin: 0 auto; }
+.info { width:  220px; margin: 0 30px 10px; float: left;cursor:pointer;text-align:center;}
+.active { background:#fff23a; }
 
 #sub_info { padding:30px 70px; width: 840px; margin: 0 auto; height: 1120px; }
 .big_info {width: 780px; margin: 15px auto 10px; padding: 5px 30px; height: 350px;}
@@ -33,7 +43,6 @@ header nav ul li a:hover{ border: 1px solid #fff;border-radius: 20px; color:#fff
 #gototop a { width: 98px; height: 28px;}
 
 footer { width:100%;  height: 50px; background: #181818; position:absolute;}
-footer.dash { position:absolute; bottom:0;}
 .yellow { height:10px; width: 780px; background: #fff23a; margin: 0 auto;}
 footer p {width: 800px; text-align: center; margin: 0 auto; padding: 10px 0 0; color: rgba(255,255,255,0.5);}
 
@@ -70,6 +79,7 @@ footer p {width: 800px; text-align: center; margin: 0 auto; padding: 10px 0 0; c
   font-size: 36px;
   line-height: 36px;
   width:50%;
+  outline:none;
 }
 /* line 277, ../../../../src/sass/homepage.sass */
 #search #search-box input::-webkit-input-placeholder, #search #search-box #placeholder-duplicate::-webkit-input-placeholder {
@@ -254,13 +264,13 @@ footer p {width: 800px; text-align: center; margin: 0 auto; padding: 10px 0 0; c
 
 /***********DASHBOARD***********/
 
-#dashboard { height: 90px; padding: 60px 0 0 0; background: black url('../img/bkg_dash.png') repeat-x bottom center; border-bottom: 2px solid #bcbcbc; }
+#dashboard { height: 90px; background: black url('../img/bkg_dash.png') repeat-x bottom center; border-bottom: 2px solid #bcbcbc; }
 #dashboard h2 { font-family:'Arvo'; font-size:34px; color:white; padding-top: 20px; width: 960px; text-align: center; margin: 0 auto;}
-#content { width:940px; padding:20px 10px; margin:0 auto;}
+#content { width:940px; padding:20px 10px; margin:30px auto;}
 #content dl { position:relative;text-align:center;opacity:0.6;font-family:'Arvo';width:220px; height:230px; background:white; float:left; border-bottom:2px solid #cac9c9; margin-right:20px;}
 #content dl:nth-child(4n){ margin-right:0; }
 #content dl:hover { opacity:1; cursor:pointer; }
 #content dt { font-size:150px; color:#262626; line-height:170px;}
 #content dd { font-size:21px; margin:0;}
-.add {position:absolute;top:1px;right:1px;cursor:pointer;height:28px;width:28px;background:url(http://placehold.it/28x28);}
+#content .add {position:absolute;top:1px;right:1px;cursor:pointer;height:28px;width:28px;background:url(http://placehold.it/28x28);}
 
