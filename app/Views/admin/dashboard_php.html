@@ -11,8 +11,8 @@
 	<meta name="description" content="">
 
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-  <link href='http://fonts.googleapis.com/css?family=Strait' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Strait' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="public/js/lib/modernizr-2.5.3.min.js"></script>
 	<script type="text/javascript" src="public/js/lib/jquery.easing.min.js"></script>
 	<script type="text/javascript" src="public/js/lib/supersized.3.2.7.min.js"></script>
@@ -35,16 +35,16 @@
 		<fieldset>
 			<h1>Ici mon dashboard</h1>
 			<?php
-			if (F3::get('synonyms')) {
+			if (F3::exists('synonyms')) {
 				echo "
 				<fieldset>
 					<h1>Résultat de la recherche</h1>
 					<h2>Synonyms</h2>
 					";
 				var_dump(F3::get('synonyms'));
-				if(F3::get('dribble')){ echo "<h2>Dribble</h2>"; var_dump(F3::get('dribble'));}
-				if(F3::get('pinterest')){ echo "<h2>Pinterest</h2>"; var_dump(F3::get('pinterest'));}
-				if(F3::get('news')){ echo "<h2>News</h2>"; var_dump(F3::get('news'));}
+				if(F3::exists('dribbble')){ echo "<h2>Dribbble</h2>"; var_dump(F3::get('dribbble'));}
+				if(F3::exists('pinterest')){ echo "<h2>Pinterest</h2>"; var_dump(F3::get('pinterest'));}
+				if(F3::exists('news')){ echo "<h2>News</h2>"; var_dump(F3::get('news'));}
 				echo"
 				</fieldset>";
 			}
@@ -54,15 +54,6 @@
 			<h1>Zboubification</h1>
 			<a href="create">Créer un nouveau brainstorming</a>
 		</fieldset>
-
-		<ul>
-		<?php foreach(F3::get('brains') as $brain): ?>
-			<li>
-				<h1><a href="<?php echo F3::get('baseUrl'); ?>/brain/edit/<?php echo $brain->idBrain; ?>"><?php echo $brain->name; ?></a></h1>
-				<span>Date : <?php $brain->date; ?></span>
-			<li>
-		<?php endforeach; ?>
-		</ul>
 	</section>
 </body>
 </html>
