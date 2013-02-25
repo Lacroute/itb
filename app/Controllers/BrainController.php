@@ -22,10 +22,15 @@ class BrainController{
 
 	function edit($id){
 		// Ici on edite un brainstorming
+		echo $id;
 	}
 
 	function remove($id){
 		//On supprime les brainstorming ici
+	}
+
+	function afterRoute(){
+
 	}
 
 	function __destruct(){
