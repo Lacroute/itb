@@ -21,10 +21,10 @@ class Pinterest extends api{
 		$response = curl_exec($curl);
 		curl_close($curl);
 		
-		$dom = new DOMDocument();
+		$dom = new \DOMDocument();
 		@$dom->loadHTML($response); // le @ n'affiche pas d'erreur
 		
-		$xpath = new DOMXPath($dom);
+		$xpath = new \DOMXPath($dom);
 		$thumbnail = $xpath->query("//*[@class='PinImageImg']/@src");
 		$full = $xpath->query("//*[@class='pin']/@data-closeup-url");
 		$thumbnails = array();

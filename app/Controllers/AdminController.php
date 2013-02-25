@@ -7,9 +7,10 @@ class AdminController{
   }
     
   function beforeroute(){
-      // if(!isset(F3::get('SESSION.idUser'))){
-      //     F3::reroute('/login');
-      // }
+      $id = F3::get('SESSION.idUser'); 
+      if(!isset($id)){
+          F3::reroute('/login');
+      }
   }
 
 
