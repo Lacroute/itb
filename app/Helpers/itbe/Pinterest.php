@@ -25,8 +25,8 @@ class Pinterest extends api{
 		@$dom->loadHTML($response); // le @ n'affiche pas d'erreur
 		
 		$xpath = new DOMXPath($dom);
-		$thumbnail = $xpath->keyword("//*[@class='PinImageImg']/@src");
-		$full = $xpath->keyword("//*[@class='pin']/@data-closeup-url");
+		$thumbnail = $xpath->query("//*[@class='PinImageImg']/@src");
+		$full = $xpath->query("//*[@class='pin']/@data-closeup-url");
 		$thumbnails = array();
 		$fulls = array();
 
