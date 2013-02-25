@@ -28,27 +28,30 @@ class SearchController{
 
 	function searchForAjax(){
 		$api = F3::get('PARAMS.api');
-		header('Cache-Control: no-cache, must-revalidate');
-		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
-		header('Content-type: application/json');
+
+		$keyword = F3::get('POST.baseWord');
+
 		switch ($api) {
 			case 'synonyms':
-				$result = F3::get('synonyms');
+				$result = new itbe\Synonyms();
 				break;
 			case 'dribbble':
-				$result = F3::get('dribbble');
+				$result = new itbe\Dribbble();
 				break;
 			case 'pinterest':
-				$result = F3::get('pinterest');
+				$result = new itbe\Pinterest();
 				break;
 			case 'news':
-				$result = F3::get('news');
+				$result = new itbe\News();
 				break;
 			default:
 				$result = "nixamere";
 				break;
 		}
-		echo $result;
+		header('Cache-Control: no-cache, must-revalidate');
+		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+		header('Content-type: application/json');
+		echo $result->search($keyword);
 	}
 
 	function __destruct(){

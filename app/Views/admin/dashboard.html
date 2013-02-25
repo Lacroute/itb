@@ -40,7 +40,7 @@
 		</div>
 
 		<section id="content">
-			<form action="" method="post">
+			<form id="itbSearch" action="" method="post">
 			<label>Search</label>
 			<input type="search" name="baseWord" />
 			<input type="submit" value="Search" /> 
@@ -87,16 +87,30 @@
 			<p>Copyright © 2077-2093 In tha brain</p>
 		</footer>
 		<script type="text/javascript">
+			$("#itbSearch").submit(function(event){   
+				/* stop form from submitting normally */
+				event.preventDefault();             
 
-		$(document).ready(function(){
-             $.ajax({
-                   type:"GET",
-                   url:"search/synonyms",
-                   success: function(retour){
-                   		console.log(retour);
-                   }
-               });
-		});
+				/* setup post function vars */
+				var url = "search/synonyms";
+				var postdata = $(this).serialize();                
+
+				/* send the data using post and put the results in a div with id="result" */
+				/* post(url, postcontent, callback, datatype returned) */
+
+				var request = $.post(
+					url,
+					postdata,
+					formpostcompleted,
+					"json"            
+				); // end post function            
+
+				function formpostcompleted(data, status){
+					/* write server response to console for troubleshooting */
+					console.log(data);
+					console.log(status);
+				}
+       		});
 		</script>
 		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
