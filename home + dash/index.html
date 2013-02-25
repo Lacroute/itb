@@ -26,7 +26,12 @@
 		<!-- Add your site or application content here -->
 
 		<section id="connect">
-			<p><a href="#">Inscription</a> | <a href="#">Connexion</a></p>
+
+ 			<a href="">In Tha Brain</a>
+			<p>
+				<?php $session = F3::get('SESSION.idUser');if(!isset($session)):?><a href="login">Login</a> | <a href="register">
+			<?php else: ?><a href="logout">Logout</a><?php endif; ?>
+			</p>
 		</section>
 
 		<header>
