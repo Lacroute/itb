@@ -2,7 +2,7 @@
 
 namespace itbe;
 
-class Dribble extends api{
+class Dribbble extends api{
 
 	/*
 	// usage
