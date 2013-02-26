@@ -18,7 +18,7 @@ class AdminController{
     F3::set('title', 'Dashboard');
 
     F3::set('brains',BrainModel::instance()->listBrains(F3::get('SESSION.idUser')));
-    echo Views::instance()->render('admin/dashboard.html');
+    echo View::instance()->render('admin/debugajax.html');
   }
   
   function create(){

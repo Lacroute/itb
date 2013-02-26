@@ -81,6 +81,7 @@ class Dribbble extends api{
 				'results' => $results
 			);
 		
+		$output = json_encode($output);
 		return ($output);
 	}
 }

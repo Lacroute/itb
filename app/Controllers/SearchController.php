@@ -23,7 +23,7 @@ class SearchController{
 		    )
 		);
 
-	    echo View::instance()->render('admin/dashboard.html');
+	    echo View::instance()->render('admin/debugajax.html');
 	}
 
 	function searchForAjax(){
