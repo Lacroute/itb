@@ -27,11 +27,11 @@
 
 	</header>
 	<section>
-		<form action="" method="post">
+		<form id="itbSearch" action="" method="post">
 			<label>Search</label>
 			<input type="search" name="baseWord" />
 			<input type="submit" value="Search" /> 
-		</form>
+			</form>
 		<fieldset>
 			<h1>Ici mon dashboard</h1>
 			<?php
@@ -55,5 +55,33 @@
 			<a href="create">Créer un nouveau brainstorming</a>
 		</fieldset>
 	</section>
+	<script type="text/javascript">
+			$("#itbSearch").submit(function(event){
+
+				ajaxGenerator($(this), 'synonyms');
+				ajaxGenerator($(this), 'pinterest');
+				ajaxGenerator($(this), 'dribbble');
+				ajaxGenerator($(this), 'news');
+
+				function ajaxGenerator(form, api){
+					console.log('search on '+api);
+					var url = "search/"+api;
+					var postdata = form.serialize();                
+
+					var request = $.post(
+						url,
+						postdata,
+						formpostcompleted,
+						"json"            
+					);
+
+					function formpostcompleted(data, status){
+						console.log(data);
+						console.log(status);
+					}
+				}
+				return false;
+       		});
+		</script>
 </body>
 </html>

@@ -40,11 +40,6 @@
 		</div>
 
 		<section id="content">
-			<form id="itbSearch" action="" method="post">
-			<label>Search</label>
-			<input type="search" name="baseWord" />
-			<input type="submit" value="Search" /> 
-			</form>
 			<dl>
 				<dt>1</dt>
 				<dd>Motpaslong</dd>
@@ -86,32 +81,7 @@
 			<div class="yellow"></div>
 			<p>Copyright © 2077-2093 In tha brain</p>
 		</footer>
-		<script type="text/javascript">
-			$("#itbSearch").submit(function(event){
 
-				ajaxGenerator($(this), 'synonyms');
-				ajaxGenerator($(this), 'pinterest');
-				ajaxGenerator($(this), 'dribbble');
-				ajaxGenerator($(this), 'news');
-
-				function ajaxGenerator(form, api){
-					var url = "search/"+api;
-					var postdata = form.serialize();                
-
-					var request = $.post(
-						url,
-						formpostcompleted,
-						"json"            
-					);
-
-					function formpostcompleted(data, status){
-						console.log(data);
-						console.log(status);
-					}
-				}
-				return false;
-       		});
-		</script>
 		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
 		<script src="js/plugins.js"></script>
