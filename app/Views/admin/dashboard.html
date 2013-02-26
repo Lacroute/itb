@@ -87,29 +87,29 @@
 			<p>Copyright © 2077-2093 In tha brain</p>
 		</footer>
 		<script type="text/javascript">
-			$("#itbSearch").submit(function(event){   
-				/* stop form from submitting normally */
-				event.preventDefault();             
+			$("#itbSearch").submit(function(event){
 
-				/* setup post function vars */
-				var url = "search/synonyms";
-				var postdata = $(this).serialize();                
+				ajaxGenerator($(this), 'synonyms');
+				ajaxGenerator($(this), 'pinterest');
+				ajaxGenerator($(this), 'dribbble');
+				ajaxGenerator($(this), 'news');
 
-				/* send the data using post and put the results in a div with id="result" */
-				/* post(url, postcontent, callback, datatype returned) */
+				function ajaxGenerator(form, api){
+					var url = "search/"+api;
+					var postdata = form.serialize();                
 
-				var request = $.post(
-					url,
-					postdata,
-					formpostcompleted,
-					"json"            
-				); // end post function            
+					var request = $.post(
+						url,
+						formpostcompleted,
+						"json"            
+					);
 
-				function formpostcompleted(data, status){
-					/* write server response to console for troubleshooting */
-					console.log(data);
-					console.log(status);
+					function formpostcompleted(data, status){
+						console.log(data);
+						console.log(status);
+					}
 				}
+				return false;
        		});
 		</script>
 		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
