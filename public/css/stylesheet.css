@@ -5,13 +5,10 @@ p { font-size: 73%;}
 .cl { clear: both;}
 .sep { height: 2px; width: 780px; background: #d5d5d5; margin: 3px auto;}
 
-#connect { background:#fff23a; height:10px; width:100%; text-align:center; padding:5px 0 35px;color:#262626;margin-top:-50px;}
-#connect a { color:#262626;text-decoration:none; font-family: 'Arvo', serif; font-size:14px;}
-#connect a:hover { font-weight:bold; background:#1A1A1A; padding:18px 10px 16px; line-height:14px; color:#fff23a;}
-#connect a:first-child { margin-right:20px;}
-#connect a:last-child { margin-left :20px; }
-#connect a:first-child:hover { margin-right:0px;}
-#connect a:last-child:hover { margin-left :0px; }
+#connect { background:#fff23a; height:10px; width:100%; text-align:center; padding:0 0 40px;color:#262626;margin-top:-50px;}
+#connect a { color:#262626;text-decoration:none; font-family: 'Arvo', serif; font-size:14px;display:inline-block;padding:0 10px;line-height:50px;margin:0;}
+#connect a:hover {background:#262626;color:#fff23a;}
+#connect p {margin:0;}
 .connect { margin-top:0 !important;  -webkit-transition: all .6s ease-in; -moz-transition: all .6s ease-in; -o-transition: all .6s ease-in; transition: all .6s ease-in;}
 
 header { background: rgba(0,0,0,0.9); width: 100%; height: 60px; }
