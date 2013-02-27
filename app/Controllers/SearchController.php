@@ -8,22 +8,24 @@ class SearchController{
 
 	function search(){
 		$keyword = F3::get('POST.baseWord');
+		$keyword = 'love';
 		
 		$synonyms = new itbe\Synonyms();
 	    $dribbble = new itbe\Dribbble();
 		$pinterest = new itbe\Pinterest();
 		$news = new itbe\News();
+		$vimeo = new itbe\Vimeo();
 
 		F3::mset(
 		    array(
-		        'synonyms'=>$synonyms->search($keyword),
+		        'vimeo'=>$vimeo->search($keyword),
 		        'dribbble'=>$dribbble->search($keyword),
 		        'pinterest'=>$pinterest->search($keyword),
 		        'news'=>$news->search($keyword)
 		    )
 		);
 
-		var_dump(F3::get('synonyms'));
+		var_dump(F3::get('vimeo'));
 	    die();
 	}
 
