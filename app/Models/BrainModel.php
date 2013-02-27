@@ -29,18 +29,9 @@ class BrainModel extends Prefab{
 
 	}
 
-	function getBrain($data){
-
-	}
-
-	function listBrains($idUser){
-
-
-		//TODO faire la jointure entre les tabml
-
-		// $combined=new DB\SQL\Mapper($db,'combined');
-		// $combined->load(array('project=?',123));
-		// echo $combined->name;
+	function listBrains(){
+		$brains=new DB\SQL\Mapper(F3::get('dB'),'brain');
+		return $brains->find(array('idUser=?',F3::get('SESSION.idUser')));
 	}
 
 	function updateBrain($data){
