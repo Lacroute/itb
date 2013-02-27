@@ -15,17 +15,20 @@ class SearchController{
 		$pinterest = new itbe\Pinterest();
 		$news = new itbe\News();
 		$vimeo = new itbe\Vimeo();
+		$twitter = new itbe\Twitter();
 
 		F3::mset(
 		    array(
-		        'vimeo'=>$vimeo->search($keyword),
-		        'dribbble'=>$dribbble->search($keyword),
-		        'pinterest'=>$pinterest->search($keyword),
-		        'news'=>$news->search($keyword)
+		    	'twitter'=>$twitter->search($keyword),
+		    	// 'synonyms'=>$synonyms->search($keyword),
+		     //    'vimeo'=>$vimeo->search($keyword),
+		     //    'dribbble'=>$dribbble->search($keyword),
+		     //    'pinterest'=>$pinterest->search($keyword),
+		     //    'news'=>$news->search($keyword)
 		    )
 		);
 
-		var_dump(F3::get('vimeo'));
+		var_dump(F3::get('twitter'));
 	    die();
 	}
 
