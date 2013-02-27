@@ -10,21 +10,22 @@ $(document).ready(function() {
 	    return false;  
 	});
 
-	$('#column1').click(function(){
+	$('#column2').click(function(){
 		$(this).toggleClass('big');
 	});
 
 	$('nav a.twitter').click(function(){
-		$('#column1').toggleClass('big');
+		$('#column2').addClass('big');
 	});
 
-	$('nav a:nth-child(n+2)').click(function(){
-		$('#column1').removeClass('big');
+
+	$('nav a:first-child').click(function(){
+		$('#column2').removeClass('big');
 	});
 
-	/*$('#column5 dl dd:nth-child(3)').addClass('smaller');
+	/*$('#column6 dl dd:nth-child(3)').addClass('smaller');
 
-	$('#column5 .slide').each(function(){
+	$('#column6 .slide').each(function(){
 		$(this).click(function(){
 			var size = $(this).prev();
 			size.toggleClass('smaller');
