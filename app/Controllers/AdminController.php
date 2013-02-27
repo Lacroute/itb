@@ -20,6 +20,12 @@ class AdminController{
     F3::set('brains',BrainModel::instance()->listBrains(F3::get('SESSION.idUser')));
     echo View::instance()->render('admin/dashboard.html');
   }
+
+  function search(){
+    F3::set('title', 'Dashboard');
+
+    echo View::instance()->render('admin/debugajax.html'); 
+  }
   
 }
 ?>

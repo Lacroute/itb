@@ -22,14 +22,14 @@
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
-  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="stylesheet" href="/itb/public/css/style.css">
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
   <!-- All JavaScript at the bottom, except this Modernizr build.
        Modernizr enables HTML5 elements & feature detects for optimal performance.
        Create your own custom Modernizr build: www.modernizr.com/download/ -->
-  <script src="public/js/modernizr-2.6.2.min.js"></script>
+  <script src="/itb/public/js/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
@@ -41,7 +41,7 @@
   <div role="main">
     <aside>
       <div>
-        <h1><a href="index.html"><img src="public/images/logo.png" width="150"></a></h1>
+        <h1><a href="index.html"><img src="/itb/public/images/logo.png" width="150"></a></h1>
           
         <form id="itbSearch" action="" method="POST"><input type="search" name="baseWord" placeholder="Entrez votre mot ici"></form>
       </div>
@@ -82,47 +82,12 @@
           <div class="data">
             <img src="http://placehold.it/200x148">
             <ul>
-              <li>76 #mots</li>
-              <li>188 mots</li>
+              <li id="nbTwitterRelsults"></li>
             </ul>
           </div>
           <div class="sep"></div>
-              <dl>
-                <dt>> from <a href="#">@Il_Taz</a></dt>
-                <dd><div class="sep"></div></dd>
-                <dd>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait. #mots (via @Zozo)</dd>
-                <dd class="add"></dd>
-              </dl>
-              <dl>
-                <dt>> from <a href="#">@Il_Taz</a></dt>
-                <dd><div class="sep"></div></dd>
-                <dd>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait. #mots (via @Zozo)</dd>
-                <dd class="add"></dd>
-              </dl>
-              <dl>
-                <dt>> from <a href="#">@Il_Taz</a></dt>
-                <dd><div class="sep"></div></dd>
-                <dd>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait. #mots (via @Zozo)</dd>
-                <dd class="add"></dd>
-              </dl>
-              <dl>
-                <dt>> from <a href="#">@Il_Taz</a></dt>
-                <dd><div class="sep"></div></dd>
-                <dd>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait. #mots (via @Zozo)</dd>
-                <dd class="add"></dd>
-              </dl>
-              <dl>
-                <dt>> from <a href="#">@Il_Taz</a></dt>
-                <dd><div class="sep"></div></dd>
-                <dd>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait. #mots (via @Zozo)</dd>
-                <dd class="add"></dd>
-              </dl>
-              <dl>
-                <dt>> from <a href="#">@Il_Taz</a></dt>
-                <dd><div class="sep"></div></dd>
-                <dd>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait. #mots (via @Zozo)</dd>
-                <dd class="add"></dd>
-              </dl>
+          <div id="twitterRelsults">
+          </div>
         </div>
       </article>
 
@@ -296,7 +261,7 @@
           <dl>
             <dt>Passe leur le Salam</dt>
             <dd><div class="sep"></div></dd>
-            <dd><img src="public/images/news1.png">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.<br><br>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</dd>
+            <dd><img src="/itb/public/images/news1.png">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.<br><br>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</dd>
             <dd class="slide"></dd>
             <dd class="add"></dd>
           </dl>
@@ -304,7 +269,7 @@
           <dl>
             <dt>Passe leur le Salam</dt>
             <dd><div class="sep"></div></dd>
-            <dd><img src="public/images/news1.png">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.<br><br>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</dd>
+            <dd><img src="/itb/public/images/news1.png">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.<br><br>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</dd>
             <dd class="slide"></dd>
             <dd class="add"></dd>
           </dl>
@@ -312,7 +277,7 @@
           <dl>
             <dt>Passe leur le Salam</dt>
             <dd><div class="sep"></div></dd>
-            <dd><img src="public/images/news1.png">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.<br><br>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</dd>
+            <dd><img src="/itb/public/images/news1.png">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.<br><br>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</dd>
             <dd class="slide"></dd>
             <dd class="add"></dd>
           </dl>
@@ -320,7 +285,7 @@
           <dl>
             <dt>Passe leur le Salam</dt>
             <dd><div class="sep"></div></dd>
-            <dd><img src="public/images/news1.png">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.<br><br>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</dd>
+            <dd><img src="/itb/public/images/news1.png">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.<br><br>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</dd>
             <dd class="slide"></dd>
             <dd class="add"></dd>
           </dl>
@@ -343,8 +308,8 @@
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
   <!-- scripts concatenated and minified via build script -->
-  <script src="public/js/plugins.js"></script>
-  <script src="public/js/script.js"></script>
+  <script src="/itb/public/js/plugins.js"></script>
+  <script src="/itb/public/js/script.js"></script>
   <!-- end scripts -->
 
   
@@ -361,9 +326,11 @@
       $("#itbSearch").submit(function(event){
 
         ajaxGenerator($(this), 'synonyms');
-        ajaxGenerator($(this), 'pinterest');
-        ajaxGenerator($(this), 'dribbble');
-        ajaxGenerator($(this), 'news');
+        ajaxGenerator($(this), 'twitter');
+        // ajaxGenerator($(this), 'pinterest');
+        // ajaxGenerator($(this), 'dribbble');
+        // ajaxGenerator($(this), 'news');
+        // ajaxGenerator($(this), 'vimeo');
 
         function ajaxGenerator(form, api){
           var url = "search/"+api;
@@ -391,6 +358,12 @@
               case 'news':
                 newsGenerator(data);
                 break;
+              case 'twitter':
+                twitterGenerator(data);
+                break;
+              case 'vimeo':
+                vimeoGenerator(data);
+                break;
               default:
                 console.log('impossible de récupérer '+api);
                 break;
@@ -401,12 +374,37 @@
             $('#nbSynonymsRelsults').append(data.length + ' synonymes trouvés');
             var parent = $('#synonymsRelsults');
             var dd;
+
             for (var i = 0; i < data.length; i++) {
               dd = $(document.createElement('dd'));
               dd.append(data[i]);
               parent.append(dd);
             };
             console.log('Synonyms ended');
+          }
+
+          function twitterGenerator(data){
+            console.log(data);
+            $('#nbTwitterRelsults').append(data.length + ' #tweets trouvés');
+            var parent = $('#twitterRelsults');
+            var dl, dd, dt;
+
+            for (var i = 0; i < data.length; i++) {
+              dl = $(document.createElement('dl'))
+              dt = $(document.createElement('dt'));
+              dt.append('> from <a href="#">@'+data[i]['from_user']+'</a>');
+              dl.append(dt);
+              dd = $(document.createElement('dd'));
+              dd.append('<div class="sep"></div>');
+              dl.append(dd);
+              dd = $(document.createElement('dd'));
+              dd.append(data[i]['text']);
+              dl.append(dd);
+              dd = $(document.createElement('dd'));
+              dd.attr('class', 'add');
+              dl.append(dd);
+              parent.append(dl);
+            }
           }
 
           function dribbbleGenerator(data){
@@ -421,6 +419,9 @@
             //console.log(data);
           }
 
+          function vimeoGenerator(data){
+            //console.log(data);
+          }
 
         }
         return false;

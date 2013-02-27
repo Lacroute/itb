@@ -13,14 +13,13 @@ class Twitter extends api{
 		$request = \Web::instance()->request('http://search.twitter.com/search.json?q='.$keyword.'&rpp=10&include_entities=true&result_type=recent');
 		$request = json_decode($request['body']);
 
-		$it = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($request));
-		$result = array();
-		foreach($it as $v) {
-		  $result[] = $v[from_user];
+		$request = $request->results;
+		foreach($request as $i=>$twit) {
+			$result[$i]['from_user'] = $twit->from_user;
+			$result[$i]['text'] = $twit->text;
 		}
 
-		var_dump($result);
-		die();
+		return json_encode($result);
 	}
 }
 ?>

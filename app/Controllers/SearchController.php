@@ -20,11 +20,11 @@ class SearchController{
 		F3::mset(
 		    array(
 		    	'twitter'=>$twitter->search($keyword),
-		    	// 'synonyms'=>$synonyms->search($keyword),
-		     //    'vimeo'=>$vimeo->search($keyword),
-		     //    'dribbble'=>$dribbble->search($keyword),
-		     //    'pinterest'=>$pinterest->search($keyword),
-		     //    'news'=>$news->search($keyword)
+		    	'synonyms'=>$synonyms->search($keyword),
+		        'vimeo'=>$vimeo->search($keyword),
+		        'dribbble'=>$dribbble->search($keyword),
+		        'pinterest'=>$pinterest->search($keyword),
+		        'news'=>$news->search($keyword)
 		    )
 		);
 
@@ -50,8 +50,14 @@ class SearchController{
 			case 'news':
 				$result = new itbe\News();
 				break;
+			case 'twitter':
+				$result = new itbe\Twitter();
+				break;
+			case 'vimeo':
+				$result = new itbe\Vimeo();
+				break;
 			default:
-				$result = "nixamere";
+				$result = 'Petit Malin';
 				break;
 		}
 		header('Cache-Control: no-cache, must-revalidate');
