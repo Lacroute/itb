@@ -14,4 +14,12 @@
 		$(this).toggleClass('active');
 	});
 
+
+	$('#search').hide();
+
+
+	$('dl').click(function(){
+		$('#search').slideDown(1000);		
+	});
+
 })();
