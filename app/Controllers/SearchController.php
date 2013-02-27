@@ -7,8 +7,7 @@ class SearchController{
 	}
 
 	function search(){
-		//$keyword = F3::get('POST.baseWord');
-		$keyword = 'love';
+		$keyword = F3::get('POST.baseWord');
 		
 		$synonyms = new itbe\Synonyms();
 	    $dribbble = new itbe\Dribbble();
