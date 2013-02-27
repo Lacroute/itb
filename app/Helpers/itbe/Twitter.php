@@ -9,8 +9,11 @@ class Twitter extends api{
 	$twitter->search('word');
 	*/
 	function search($keyword){
-		// ici la fonction qui retourne un tableau json
 
+		$request = \Web::instance()->request('http://search.twitter.com/search.json?q='.$keyword.'&rpp=10&include_entities=true&result_type=recent');
+
+		var_dump($request);
+		die();
 	}
 }
 ?>

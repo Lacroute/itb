@@ -65,9 +65,7 @@
           <div class="data">
             <img src="http://placehold.it/200x148">
             <ul>
-              <li>76 #mots</li>
-              <li>188 mots</li>
-              <li><button id="generateDD">DD</button></li>
+              <li id="nbSynonymsRelsults"></li>
             </ul>
           </div>
           <div class="sep"></div>
@@ -355,8 +353,9 @@
     var parent = $('#synonymsRelsults');
     var dd, textNode;
     dd = $(document.createElement('dd'));
-    textNode = document.createTextNode(data[i]);
-    dd.append(textNode);
+    dd.append('textNode');
+    parent.append(dd);
+    console.log('ajouté');
     return false;
   });
       $("#itbSearch").submit(function(event){
@@ -399,15 +398,15 @@
           }
 
           function synonymsGenerator(data){
+            $('#nbSynonymsRelsults').append(data.length + ' synonymes trouvés');
             var parent = $('#synonymsRelsults');
-            var dd, textNode;
+            var dd;
             for (var i = 0; i < data.length; i++) {
               dd = $(document.createElement('dd'));
-              textNode = document.createTextNode(data[i]);
-              dd.append(textNode);
-              console.log(dd);
+              dd.append(data[i]);
+              parent.append(dd);
             };
-            console.log('');
+            console.log('Synonyms ended');
           }
 
           function dribbbleGenerator(data){
