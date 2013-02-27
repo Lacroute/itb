@@ -19,17 +19,14 @@ class SearchController{
 
 		F3::mset(
 		    array(
+		    	'pinterest'=>$pinterest->search($keyword),
 		    	'vimeo'=>$vimeo->search($keyword),
 		    	'twitter'=>$twitter->search($keyword),
 		    	'synonyms'=>$synonyms->search($keyword),
 		        'dribbble'=>$dribbble->search($keyword),
-		        'pinterest'=>$pinterest->search($keyword),
 		        'news'=>$news->search($keyword)
 		    )
 		);
-
-		var_dump(F3::get('vimeo'));
-	    die();
 	}
 
 	function searchForAjax(){
@@ -65,6 +62,7 @@ class SearchController{
 		header('Content-type: application/json');
 		echo $result->search($keyword);
 	}
+
 
 	function __destruct(){
 
