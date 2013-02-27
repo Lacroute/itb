@@ -19,16 +19,16 @@ class SearchController{
 
 		F3::mset(
 		    array(
+		    	'vimeo'=>$vimeo->search($keyword),
 		    	'twitter'=>$twitter->search($keyword),
 		    	'synonyms'=>$synonyms->search($keyword),
-		        'vimeo'=>$vimeo->search($keyword),
 		        'dribbble'=>$dribbble->search($keyword),
 		        'pinterest'=>$pinterest->search($keyword),
 		        'news'=>$news->search($keyword)
 		    )
 		);
 
-		var_dump(F3::get('twitter'));
+		var_dump(F3::get('vimeo'));
 	    die();
 	}
 

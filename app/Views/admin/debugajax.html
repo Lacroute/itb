@@ -69,8 +69,8 @@
             </ul>
           </div>
           <div class="sep"></div>
-          <dl id="synonymsRelsults">
-          </dl>
+          <div id="synonymsRelsults">
+          </div>
         </div>
       </article>
 
@@ -99,31 +99,12 @@
           <div class="data">
             <img src="http://placehold.it/200x148">
             <ul>
-              <li>76 #mots</li>
-              <li>188 mots</li>
+              <li id="nbVimeoRelsults"></li>
             </ul>
           </div>
           <div class="sep"></div>
-          <dl>
-                <dt><p><a href="http://vimeo.com/14010745">Tim Tebow: Everything In Between</a> from <a href="http://vimeo.com/fctn">FCTN</a> on <a href="http://vimeo.com">Vimeo</a>.</p></dt>
-                <dd><div class="sep"></div></dd>
-                <dd><iframe src="http://player.vimeo.com/video/14010745?title=0&amp;byline=0&amp;portrait=0&amp;color=d01e2f" width="100%" height="25%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> </dd>
-                <dd class="add"></dd>
-              </dl>
-
-              <dl>
-                <dt><p><a href="http://vimeo.com/22654879">Under Armour "Julio Jones: UA E39" :60</a> from <a href="http://vimeo.com/shilo">Shilo</a> on <a href="http://vimeo.com">Vimeo</a>.</p></dt>
-                <dd><div class="sep"></div></dd>
-                <dd><iframe src="http://player.vimeo.com/video/22654879?title=0&amp;byline=0&amp;portrait=0&amp;color=ca0000" width="100%" height="25%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></dd>
-                <dd class="add"></dd>
-              </dl>
-
-              <dl>
-                <dt><p><a href="http://vimeo.com/31382481">The tilt-shift superbowl | from The Season presented by SAP</a> from <a href="http://vimeo.com/stillmotionfilms">stillmotion</a> on <a href="http://vimeo.com">Vimeo</a>.</p></dt>
-                <dd><div class="sep"></div></dd>
-                <dd><iframe src="http://player.vimeo.com/video/31382481?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="100%" height="25%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></dd>
-                <dd class="add"></dd>
-              </dl>
+          <div id="vimeoRelsults">
+          </div>
         </div>
       </article>
 
@@ -327,10 +308,10 @@
 
         ajaxGenerator($(this), 'synonyms');
         ajaxGenerator($(this), 'twitter');
+        ajaxGenerator($(this), 'vimeo');
         // ajaxGenerator($(this), 'pinterest');
         // ajaxGenerator($(this), 'dribbble');
         // ajaxGenerator($(this), 'news');
-        // ajaxGenerator($(this), 'vimeo');
 
         function ajaxGenerator(form, api){
           var url = "search/"+api;
@@ -372,7 +353,8 @@
 
           function synonymsGenerator(data){
             $('#nbSynonymsRelsults').append(data.length + ' synonymes trouvés');
-            var parent = $('#synonymsRelsults');
+            var parent = $(document.createElement('dl'));
+            $('#synonymsRelsults').append(parent);
             var dd;
 
             for (var i = 0; i < data.length; i++) {
@@ -380,17 +362,15 @@
               dd.append(data[i]);
               parent.append(dd);
             };
-            console.log('Synonyms ended');
           }
 
           function twitterGenerator(data){
-            console.log(data);
             $('#nbTwitterRelsults').append(data.length + ' #tweets trouvés');
             var parent = $('#twitterRelsults');
             var dl, dd, dt;
 
             for (var i = 0; i < data.length; i++) {
-              dl = $(document.createElement('dl'))
+              dl = $(document.createElement('dl'));
               dt = $(document.createElement('dt'));
               dt.append('> from <a href="#">@'+data[i]['from_user']+'</a>');
               dl.append(dt);
@@ -407,6 +387,30 @@
             }
           }
 
+          function vimeoGenerator(data){
+            $('#nbVimeoRelsults').append(data.length + ' #tweets trouvés');
+            var parent = $('#vimeoRelsults');
+            var dl, dd, dt;
+            
+            for (var i = 0; i < data.length; i++) {
+              dl = $(document.createElement('dl'));
+              dt = $(document.createElement('dt'));
+              dt.append('<p><a href="http://vimeo.com/'+data[i]['id']+'">'+data[i]['title']+'</a></p>');
+              dl.append(dt);
+              dd = $(document.createElement('dd'));
+              dd.append('<div class="sep"></div>');
+              dl.append(dd);
+              dd = $(document.createElement('dd'));
+              dd.append('<iframe src="http://player.vimeo.com/video/'+data[i]['id']+'?byline=0&badge=0&color=d01e2f&title=0&portrait=0&" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+              dl.append(dd);
+              dd = $(document.createElement('dd'));
+              dd.attr('class', 'add');
+              dl.append(dd);
+              parent.append(dl);
+            }
+            // <iframe src="http://player.vimeo.com/video/28821613?byline=0&badge=0&color=222&title=0&portrait=0" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          }
+
           function dribbbleGenerator(data){
             //console.log(data);
           }
@@ -416,10 +420,6 @@
           }
 
           function newsGenerator(data){
-            //console.log(data);
-          }
-
-          function vimeoGenerator(data){
             //console.log(data);
           }
 
