@@ -325,63 +325,7 @@
             </ul>
           </div>
           <div class="sep"></div>
-          <dl>
-            <dd>lorem</dd>
-            <dd>ipsum</dd>
-            <dd>fezfe</dd>
-            <dd>gthty</dd>
-            <dd>yflfg</dd>
-            <dd>afevh</dd>
-            <dd>htyhf</dd>
-            <dd>jyant</dd>
-            <dd>uilli</dd>
-            <dd>ilmkj</dd>
-            <dd>pomde</dd>
-            <dd>dezde</dd>
-            <dd>cwfix</dd>
-            <dd>klium</dd>
-            <dd>lorem</dd>
-            <dd>ipsum</dd>
-            <dd>fezfe</dd>
-            <dd>gthty</dd>
-            <dd>yflfg</dd>
-            <dd>afevh</dd>
-            <dd>htyhf</dd>
-            <dd>jyant</dd>
-            <dd>uilli</dd>
-            <dd>ilmkj</dd>
-            <dd>pomde</dd>
-            <dd>dezde</dd>
-            <dd>cwfix</dd>
-            <dd>klium</dd>
-            <dd>lorem</dd>
-            <dd>ipsum</dd>
-            <dd>fezfe</dd>
-            <dd>gthty</dd>
-            <dd>yflfg</dd>
-            <dd>afevh</dd>
-            <dd>htyhf</dd>
-            <dd>jyant</dd>
-            <dd>uilli</dd>
-            <dd>ilmkj</dd>
-            <dd>pomde</dd>
-            <dd>dezde</dd>
-            <dd>cwfix</dd>
-            <dd>klium</dd>
-            <dd>lorem</dd>
-            <dd>ipsum</dd>
-            <dd>fezfe</dd>
-            <dd>gthty</dd>
-            <dd>yflfg</dd>
-            <dd>afevh</dd>
-            <dd>htyhf</dd>
-            <dd>jyant</dd>
-            <dd>uilli</dd>
-            <dd>ilmkj</dd>
-            <dd>pomde</dd>
-            <dd>dezde</dd>
-            <dd>cwfix</dd>
-            <dd>klium</dd>
+          <dl id="#synonymsRelsults">
           </dl>
         </div>
       </article>
@@ -413,7 +357,6 @@
 				ajaxGenerator($(this), 'news');
 
 				function ajaxGenerator(form, api){
-					console.log('search on '+api);
 					var url = "search/"+api;
 					var postdata = form.serialize();                
 
@@ -425,9 +368,51 @@
 					);
 
 					function formpostcompleted(data, status){
-						console.log(data);
-						console.log(status);
+						console.log('search on '+api+' : '+status);
+            switch(api){
+              case 'synonyms':
+                synonymsGenerator(data);
+                break;
+              case 'dribbble':
+                dribbbleGenerator(data);
+                break;
+              case 'pinterest':
+                pinterestGenerator(data);
+                break;
+              case 'news':
+                newsGenerator(data);
+                break;
+              default:
+                console.log('impossible de récupérer '+api);
+                break;
+            }
 					}
+
+          function synonymsGenerator(data){
+            var parent = $('#synonymsRelsults');
+            var dd, textNode;
+            for (var i = 0; i < data.length; i++) {
+              dd = $(document.createElement('dd'));
+              textNode = document.createTextNode(data[i]);
+              dd.append(textNode);
+              console.log(dd);
+            };
+            console.log('');
+          }
+
+          function dribbbleGenerator(data){
+            //console.log(data);
+          }
+
+          function pinterestGenerator(data){
+            //console.log(data);
+          }
+
+          function newsGenerator(data){
+            //console.log(data);
+          }
+
+
 				}
 				return false;
        		});

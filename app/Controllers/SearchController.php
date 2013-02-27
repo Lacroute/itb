@@ -7,7 +7,8 @@ class SearchController{
 	}
 
 	function search(){
-		$keyword = F3::get('POST.baseWord');
+		//$keyword = F3::get('POST.baseWord');
+		$keyword = 'love';
 		
 		$synonyms = new itbe\Synonyms();
 	    $dribbble = new itbe\Dribbble();
@@ -23,7 +24,8 @@ class SearchController{
 		    )
 		);
 
-	    echo View::instance()->render('admin/debugajax.html');
+		var_dump(F3::get('synonyms'));
+	    die();
 	}
 
 	function searchForAjax(){
