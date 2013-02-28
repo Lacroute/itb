@@ -45,6 +45,7 @@ footer p {width: 800px; text-align: center; margin: 0 auto; padding: 10px 0 0; c
 
 #search {border-bottom:1px solid #262626;padding:30px 0;text-align:center;}
 #search-input {outline:1px solid white;border:1px solid #cacaca;width:870px;height:70px;padding-left:90px;position:relative;background:url('../images/bg-input.png') no-repeat top left #fdfdfd;font-size:24px;}
+#name-input {outline:1px solid white;border:1px solid #cacaca;width:870px;height:70px;padding-left:90px;position:relative;background:url('../images/bg-name.png') no-repeat top left #fdfdfd;font-size:24px;margin-bottom:20px;}
 
 
 /***********DASHBOARD***********/
