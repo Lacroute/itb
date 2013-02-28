@@ -12,10 +12,10 @@ class BrainController{
       		break;
       	case 'POST':
       		$data = array(
-				"name" => F3::get('POST.brain_name'),
+				"name" => F3::get('POST.name-input'),
 			);
 			$addBrain = BrainModel::instance()->addBrain($data);
-			reroute('/dashboard/'.$addBrain.'search/'.F3::get('POST.baseword'))
+			reroute('/dashboard/'.$addBrain.'search/'.F3::get('POST.search-input'))
       		break;
       	}
 	}
