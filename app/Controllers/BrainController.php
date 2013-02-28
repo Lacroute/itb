@@ -15,7 +15,7 @@ class BrainController{
 				"name" => F3::get('POST.brain_name'),
 			);
 			$addBrain = BrainModel::instance()->addBrain($data);
-			echo "ok";
+			reroute('/dashboard/'.$addBrain.'search/'.F3::get('POST.baseword'))
       		break;
       	}
 	}

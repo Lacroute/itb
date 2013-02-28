@@ -5,10 +5,10 @@ class UserController{
 
 	}
 
-	function register(){
+	function create(){
 		switch(F3::get('VERB')){
 		case 'GET':
-        	echo Views::instance()->render('register.php');
+        	echo Views::instance()->render('create.php');
       		break;
       	case 'POST':
       		$check = array('pseudo'=>'required', 'email'=>'required','password'=>'required');
