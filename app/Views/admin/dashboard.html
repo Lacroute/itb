@@ -43,15 +43,15 @@
 
 			<article id="search">
 		    	<form id="itbSearch" action="" method="post">
-			    	<input id="name-input" type="text" role="name" placeholder="Name" value="" autofocus="autofocus" />
-			    	<input id="search-input" type="text" role="search" placeholder="Word" value="" autofocus="autofocus" />
+			    	<input id="name-input" name="name-input" type="text" role="name" placeholder="Name" value="" autofocus="autofocus" />
+			    	<input id="search-input" name="search-input"type="text" role="search" placeholder="Word" value="" autofocus="autofocus" />
 			    	<input type="submit" value="Nixamère"/>
 			    </form>
 			</article>
 
 			<?php if($brains): $i = 1; foreach ($brains as $brain): ?>
 				<dl>
-					<a href="">
+					<a href=<?php echo "dashboard/".$brain->idBrain."/search/"; ?>>
 						<dt><?php echo $i; ?></dt>
 						<dd><?php echo $brain->name; ?></dd>
 						<dd class="add"></dd>

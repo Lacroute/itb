@@ -11,11 +11,19 @@ class BrainController{
         	echo Views::instance()->render('new_brain.php');
       		break;
       	case 'POST':
+      	    $check=array('name-input'=>'required','search-input'=>'required');
+	        $error=Datas::instance()->check(F3::get('POST'),$check);
+	        if($error){
+	          F3::set('errorMsg',$error);
+	          F3::reroute('/dashboard');
+	          return;
+	        }
       		$data = array(
 				"name" => F3::get('POST.name-input'),
 			);
 			$addBrain = BrainModel::instance()->addBrain($data);
-			reroute('/dashboard/'.$addBrain.'search/'.F3::get('POST.search-input'))
+			
+			F3::reroute('/dashboard/'.$addBrain.'/search/'.F3::get('POST.search-input'));
       		break;
       	}
 	}
