@@ -7,24 +7,17 @@ class AdminController{
   }
     
   function beforeroute(){
-      $id = F3::get('SESSION.idUser'); 
+      $id = F3::get('SESSION.idUser');
       if(!isset($id)){
-          F3::reroute('/login');
+          F3::reroute('/user/login');
       }
   }
-
 
   function dashboard(){
     F3::set('title', 'Dashboard');
 
     F3::set('brains',BrainModel::instance()->listBrains(F3::get('SESSION.idUser')));
     echo View::instance()->render('admin/dashboard.html');
-  }
-
-  function search(){
-    F3::set('title', 'Dashboard');
-
-    echo View::instance()->render('admin/debugajax.html'); 
   }
   
 }

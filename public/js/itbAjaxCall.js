@@ -1,15 +1,26 @@
-$("#itbSearch").submit(function(event){
+var word = $('#baseWord').val();
 
-  ajaxGenerator($(this), 'synonyms');
-  ajaxGenerator($(this), 'twitter');
-  ajaxGenerator($(this), 'vimeo');
-  ajaxGenerator($(this), 'pinterest');
-  ajaxGenerator($(this), 'dribbble');
-  ajaxGenerator($(this), 'news');
+$("#itbSearch").submit(ajaxRequest);
+if(word != ""){
+  ajaxRequest();
+}
+
+
+function ajaxRequest(event){
+  if(word == ""){
+    word = $('#baseWord').val();
+  }
+  form = $("#itbSearch");
+  ajaxGenerator(form, 'synonyms');
+  ajaxGenerator(form, 'twitter');
+  ajaxGenerator(form, 'vimeo');
+  ajaxGenerator(form, 'pinterest');
+  ajaxGenerator(form, 'dribbble');
+  ajaxGenerator(form, 'news');
 
   function ajaxGenerator(form, api){
-    var url = "search/"+api;
-    var postdata = form.serialize();                
+    var url = word+'/'+api;
+    var postdata = form.serialize();
 
     var request = $.post(
       url,
@@ -160,4 +171,4 @@ $("#itbSearch").submit(function(event){
 
   }
   return false;
-});
+}

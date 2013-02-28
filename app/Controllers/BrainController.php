@@ -28,6 +28,32 @@ class BrainController{
       	}
 	}
 
+	function search(){
+	    F3::set('title', 'Dashboard');
+
+	    echo View::instance()->render('admin/debugajax.html'); 
+  	}
+
+  	function map(){
+	    F3::set('title', 'Map');
+
+	    switch(F3::get('VERB')){
+		case 'GET':
+	    	echo View::instance()->render('admin/map.html'); 
+	    	break;
+	    case 'POST':
+	    	$check=array('baseWord'=>'required');
+	        $error=Datas::instance()->check(F3::get('POST'),$check);
+	        if($error){
+	          F3::set('errorMsg',$error);
+	          F3::reroute('/dashboard/'.F3::get('PARAMS.id').'/map');
+	          return;
+	        }
+	        F3::reroute('/dashboard/'.F3::get('PARAMS.id').'/search/'.F3::get('POST.baseWord'));
+	        break;
+	    }
+  	}
+
 	function edit($id){
 		// Ici on edite un brainstorming
 		echo $id;
