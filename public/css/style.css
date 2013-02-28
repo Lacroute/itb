@@ -332,14 +332,22 @@ h2 {
   clear:both;
 }
 
+/**********NAVIGATION**********/
+
+#navigation { background:#272727; height:10px; width:100%; text-align:center; padding:0 0 30px;color:white;position:fixed;top:0;}
+#navigation a { color:white;text-decoration:none; font-family: 'Arvo', serif; font-size:14px;display:inline-block;padding:0 20px;line-height:40px;margin:0;}
+#navigation a:hover {background:#262626;color:#ebe261;}
+#navigation ul li:first-child {float:left;}
+#navigation ul li:nth-child(2) {float:right;}
+
 /**********ASIDE**********/
 
 aside {
   position: fixed;
   background: #181818;
-  width: 280px;
+  width: 330px;
   left: 0px;
-  top: 0px;
+  top: 40px;
   height: 100%;
   padding:0 10px;
   z-index:1;
@@ -352,14 +360,16 @@ aside div {
 
 input[type=search] {
   height:60px;
-  width:100%;
+  width:96%;
   color:white;
   border:none;
   background:#272727;
   margin:5px 0 20px;
+  padding-left:4%;
+  outline:none;
 }
 
-nav a {
+aside nav a {
   width:198;
   height:45px;
   padding:10px 0 5px 80px;
@@ -374,22 +384,11 @@ nav a {
   position:relative;
 }
 
-nav a:visited {
+aside nav a:visited {
   color:white;
 }
 
-nav a span:first-child {
-  display:inline-block;
-  width:50px;
-  height:40px;
-  overflow:hidden;
-  background:url(../images/sprite.png) top left;
-  position:absolute;
-  top:10px;
-  left:20px;
-}
-
-nav a span:nth-child(2){
+aside nav a span:nth-child(2){
   display:block;
   color:#383838;
   font-style:italic;
@@ -397,82 +396,68 @@ nav a span:nth-child(2){
 }
 
 /*TWITTER*/
-nav a:nth-child(2) {
-  border-left:2px solid #00aced;
+aside nav a:nth-child(2) {
+  background:url(../images/sprite.png);
+  background-position: -21px -888px;
 }
 
-nav a:nth-child(2):hover {
-  background:#00aced;
-  color:white;
-}
-
-nav a:nth-child(2) span:first-child {
-  background:url(../images/sprite.png) top left;
+aside nav a:nth-child(2):hover {
+  color:#262626;
+  background-position: -21px -958px;
 }
 
 /*VIMEO*/
-nav a:nth-child(3) {
-  border-left:2px solid #167979;
+aside nav a:nth-child(3) {
+  background:url(../images/sprite.png);
+  background-position: -21px -1053px;
 }
 
-nav a:nth-child(3):hover {
-  background:#167979;
-  color:white;
-}
-
-nav a:nth-child(3) span:first-child {
-  background:url(../images/sprite.png) -50px top;
+aside nav a:nth-child(3):hover {
+  color:#262626;
+  background-position: -21px -1123px;
 }
 
 /*PINTEREST*/
-nav a:nth-child(4) {
-  border-left:2px solid #ca1f28;
+aside nav a:nth-child(4) {
+  background:url(../images/sprite.png);
+  background-position: -21px -1223px;
 }
 
-nav a:nth-child(4):hover {
-  background:#ca1f28;
-  color:white;
-}
-
-nav a:nth-child(4) span:first-child {
-  background:url(../images/sprite.png) -100px top;
+aside nav a:nth-child(4):hover {
+  color:#262626;
+  background-position: -21px -1293px;
 }
 
 /*DRIBBBLE*/
-nav a:nth-child(5) {
-  border-left:2px solid #e14380;
+aside nav a:nth-child(5) {
+  background:url(../images/sprite.png);
+  background-position: -21px -1393px;
 }
 
-nav a:nth-child(5):hover {
-  background:#e14380;
-  color:white;
-}
-
-nav a:nth-child(5) span:first-child {
-  background:url(../images/sprite.png) -150px top;
+aside nav a:nth-child(5):hover {
+  color:#262626;
+  background-position: -21px -1463px;
 }
 
 /*NEWS*/
-nav a:nth-child(6) {
-  border-left:2px solid #d2d02f;
+aside nav a:nth-child(6) {
+  background:url(../images/sprite.png);
+  background-position: -21px -1733px;
 }
 
-nav a:nth-child(6):hover {
-  background:#d2d02f;
-  color:white;
-}
-
-nav a:nth-child(6) span:first-child {
-  background:url(../images/sprite.png) -200px top;
+aside nav a:nth-child(6):hover {
+  color:#262626;
+  background-position: -21px -1803px;
 }
 
 /*SYNONYMES*/
-nav a:first-child {
-  border-left:2px solid #59d22f;
+aside nav a:first-child {
+  background:url(../images/sprite.png);
+  background-position: -21px -1563px;
 }
 
-nav a:first-child:hover {
-  background:#59d22f;
+aside nav a:first-child:hover {
+  background-position: -21px -1633px;
   color:white;
 }
 
@@ -481,7 +466,9 @@ nav a:first-child:hover {
 section {
   display:block;
   width:5000px;
-  margin-left:300px;
+  margin-left:350px;
+  position:relative;
+  top:40px;
 }
 
 /**********COLUMNS**********/
@@ -492,6 +479,7 @@ article {
   overflow-x:hidden;
   float:left;
   position:relative;
+  padding-bottom:50px;
   -webkit-transition: width .1s ease-in;
   -moz-transition: width .1s ease-in;
   -ms-transition: width .1s ease-in;
@@ -500,11 +488,13 @@ article {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(39, 39, 39, 0.3)
+  background: rgba(39, 39, 39, 0.3);
+  cursor:pointer;
 }
 
 ::-webkit-scrollbar {
   width: 7px;
+  cursor:pointer;
 }
 
 #column1::-webkit-scrollbar-thumb {
@@ -537,6 +527,37 @@ background: #777777;
 cursor:pointer;
 }
 
+.img {
+  display:inline-block;
+  width:200px;
+  height:148px;
+  background:url(../images/sprite.png);
+}
+
+#column2 .img {
+  background-position: left top;
+}
+
+#column3 .img {
+  background-position: left -148px;
+}
+
+#column4 .img {
+  background-position: left -296px;
+}
+
+#column5 .img {
+  background-position: left -444px;
+}
+
+#column1 .img {
+  background-position: left -592px;
+}
+
+#column6 .img {
+  background-position: left -740px;
+}
+
 .big {
   width:800px;
   -webkit-transition: width .3s ease-in;
@@ -548,7 +569,8 @@ cursor:pointer;
 
 .wrapper {
   width:94%;
-  padding:0 30px 0 20px;
+  padding:0 30px 0px 20px;
+  margin-bottom:50px;
 }
 
 .wrapper p {
@@ -575,6 +597,14 @@ cursor:pointer;
 .data ul {
   display:inline-block;
   list-style:none;
+  float:right;
+  padding:0;
+  width:255px;
+  text-align:center;
+}
+
+.clic {
+  width:540px !important;
 }
 
 .sep {
@@ -590,9 +620,62 @@ cursor:pointer;
   top:1px;
   right:1px;
   cursor:pointer;
-  height:28px;
-  width:28px;
-  background:url(http://placehold.it/28x28);
+  height:30px;
+  width:30px;
+}
+
+#column1 .add {
+  background:url(../images/sprite.png);
+  background-position: right -30px;
+}
+
+#column1 dl:hover .add {
+  background-position: right top;
+}
+
+#column2 .add {
+  background:url(../images/sprite.png);
+  background-position: right -60px;
+}
+
+#column2 dl:hover .add {
+  background-position: right top;
+}
+
+#column3 .add {
+  background:url(../images/sprite.png);
+  background-position: right -90px;
+}
+
+#column3 dl:hover .add {
+  background-position: right top;
+}
+
+#column4 .add {
+  background:url(../images/sprite.png);
+  background-position: right -120px;
+}
+
+#column4 dl:hover .add {
+  background-position: right top;
+}
+
+#column5 .add {
+  background:url(../images/sprite.png);
+  background-position: right -150px;
+}
+
+#column5 dl:hover .add {
+  background-position: right top;
+}
+
+#column6 .add {
+  background:url(../images/sprite.png);
+  background-position: right -180px;
+}
+
+#column6 dl:hover .add {
+  background-position: right top;
 }
 
 /**********COLUMN 1**********/
@@ -622,13 +705,13 @@ cursor:pointer;
 /**********COLUMN 5**********/
 
 #column6 .color {
-  background:#d2d02f;
+  background:#000000;
 }
 
 /**********COLUMN 6**********/
 
 #column1 .color {
-  background:#59d22f;
+  background:#e68c00;
 }
 
 /**********POSTS**********/
@@ -640,10 +723,12 @@ dl {
   background:#eeeeee;
   padding:3%;
   margin-bottom:20px;
+  margin-top:0 !important;
 }
 
 dd, dt {
   margin:0;
+  font-size:0.8em;
 }
 
 /**********POSTS TWITTER**********/
@@ -728,6 +813,7 @@ dd, dt {
 
 .columns {
   width: 100%;
+  padding-bottom:20px;
   overflow: hidden;
   margin-bottom: -1.875em; /* 30px */
   -webkit-column-count: 2;
@@ -752,7 +838,7 @@ dd, dt {
 /**********POSTS NEWS**********/
 
 #column6 dl {
-  border-bottom:2px solid #d2d02f;
+  border-bottom:2px solid #000000;
 }
 
 #column6 dd {
@@ -796,17 +882,18 @@ dd, dt {
 /**********POSTS SYNONYMES**********/
 
 #column1 dl {
-  border-bottom:2px solid #59d22f;
+  border-bottom:2px solid #e68c00;
 }
 
 #column1 dl a {
-  color:#59d22f;
+  color:#e68c00;
 }
 
 #column1 dl dd:hover {
   padding:2px 5px;
   font-size:24px;
   cursor:pointer;
-  background:#272727 url(http://placehold.it/21x19) center right no-repeat;
+  background:#272727 url(../images/sprite.png) no-repeat right center;
+  background-position:bottom right;
   color:white;
 }

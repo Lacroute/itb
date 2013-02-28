@@ -36,14 +36,19 @@
        chromium.org/developers/how-tos/chrome-frame-getting-started -->
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
   <header>
-
+    <nav id="navigation">
+      <ul>
+        <li><a href="http://localhost/itb/dashboard">< Back dashboard</a></li>
+        <li><a href="">Go board ></a></li>
+      </ul>
+    </nav>
   </header>
   <div role="main">
     <aside>
       <div>
         <h1><a href=""><img src="/itb/public/images/logo.png" width="150"></a></h1>
           
-        <form id="itbSearch" action="" method="POST"><input type="search" name="baseWord" placeholder="Entrez votre mot ici"></form>
+        <form id="itbSearch" action="" method="POST"><input type="search" name="baseWord" placeholder="Your word"></form>
       </div>
       <nav>
         <a href="#column1"><span></span>Synonymes<span>Using Thesaurus</span></a>
@@ -51,7 +56,7 @@
         <a href="#column3"><span></span>Viméo<span>Using Viméo</span></a>
         <a href="#column4"><span></span>Pinterest<span>Using Pinterest</span></a>
         <a href="#column5"><span></span>Dribbble<span>Using Dribbble</span></a>
-        <a class="news" href="#column6"><span></span>News<span>Using News</span></a>
+        <a class="news" href="#column6"><span></span>The New York Times<span>Using The New York Times</span></a>
         
       </nav>
     </aside>
@@ -63,7 +68,7 @@
           <h2>Synonymes</h2>
           <p>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait, à Bourg-en-Lettres, sur les côtes de la Sémantique, un vaste océan de langues. Un petit ruisseau, du nom de Larousse, coule en leur lieu et les approvisionne en règlalades nécessaires en tout genre; un pays paradisiagmatique, dans lequel des pans entiers de phrases prémâchées vous volent litéralement tout cuit dans la bouche.</p>
           <div class="data">
-            <img src="http://placehold.it/200x148">
+            <span class="img"></span>
             <ul>
               <li id="nbSynonymsResults"></li>
             </ul>
@@ -80,7 +85,7 @@
           <h2>Twitter</h2>
           <p>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait, à Bourg-en-Lettres, sur les côtes de la Sémantique, un vaste océan de langues. Un petit ruisseau, du nom de Larousse, coule en leur lieu et les approvisionne en règlalades nécessaires en tout genre; un pays paradisiagmatique, dans lequel des pans entiers de phrases prémâchées vous volent litéralement tout cuit dans la bouche.</p>
           <div class="data">
-            <img src="http://placehold.it/200x148">
+            <span class="img"></span>
             <ul>
               <li id="nbTwitterResults"></li>
             </ul>
@@ -97,7 +102,7 @@
           <h2>viméo</h2>
           <p>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait, à Bourg-en-Lettres, sur les côtes de la Sémantique, un vaste océan de langues. Un petit ruisseau, du nom de Larousse, coule en leur lieu et les approvisionne en règlalades nécessaires en tout genre; un pays paradisiagmatique, dans lequel des pans entiers de phrases prémâchées vous volent litéralement tout cuit dans la bouche.</p>
           <div class="data">
-            <img src="http://placehold.it/200x148">
+            <span class="img"></span>
             <ul>
               <li id="nbVimeoResults"></li>
             </ul>
@@ -114,7 +119,7 @@
           <h2>Pinterest</h2>
           <p>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait, à Bourg-en-Lettres, sur les côtes de la Sémantique, un vaste océan de langues. Un petit ruisseau, du nom de Larousse, coule en leur lieu et les approvisionne en règlalades nécessaires en tout genre; un pays paradisiagmatique, dans lequel des pans entiers de phrases prémâchées vous volent litéralement tout cuit dans la bouche.</p>
           <div class="data">
-            <img src="http://placehold.it/200x148">
+            <span class="img"></span>
             <ul>
               <li id="nbPinterestResults"></li>
             </ul>
@@ -131,7 +136,7 @@
           <h2>Dribbble</h2>
           <p>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait, à Bourg-en-Lettres, sur les côtes de la Sémantique, un vaste océan de langues. Un petit ruisseau, du nom de Larousse, coule en leur lieu et les approvisionne en règlalades nécessaires en tout genre; un pays paradisiagmatique, dans lequel des pans entiers de phrases prémâchées vous volent litéralement tout cuit dans la bouche.</p>
           <div class="data">
-            <img src="http://placehold.it/200x148">
+            <span class="img"></span>
             <ul>
               <li id="nbDribbbleResults"></li>
             </ul>
@@ -148,7 +153,7 @@
           <h2>News</h2>
           <p>Loin, très loin, au delà des monts Mots, à mille lieues des pays Voyellie et Consonnia, demeurent les Bolos Bolos. Ils vivent en retrait, à Bourg-en-Lettres, sur les côtes de la Sémantique, un vaste océan de langues. Un petit ruisseau, du nom de Larousse, coule en leur lieu et les approvisionne en règlalades nécessaires en tout genre; un pays paradisiagmatique, dans lequel des pans entiers de phrases prémâchées vous volent litéralement tout cuit dans la bouche.</p>
           <div class="data">
-            <img src="http://placehold.it/200x148">
+            <span class="img"></span>
             <ul>
               <li id="nbNewsResults"></li>
             </ul>

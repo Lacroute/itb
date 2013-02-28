@@ -5,7 +5,7 @@ $(document).ready(function() {
 	$('a[href^="#"]').click(function(){  
 	    var the_id = $(this).attr("href");  
 	    $('html, body').animate({  
-	        scrollLeft:$(the_id).offset().left - 300
+	        scrollLeft:$(the_id).offset().left - 350
 	    }, 'slow');  
 	    return false;  
 	});
@@ -16,6 +16,8 @@ $(document).ready(function() {
 
 	$('nav a.twitter').click(function(){
 		$('#column2').addClass('big');
+		$('#twitterResults').addClass('columns');
+		$('#column2 .data ul').addClass('clic');
 	});
 
 	$('nav a.news').click(function(){
@@ -28,6 +30,8 @@ $(document).ready(function() {
 
 	$('nav a:first-child').click(function(){
 		$('#column2').removeClass('big');
+		$('#twitterResults').removeClass('columns');
+		$('#column2 .data ul').removeClass('clic');
 	});
 
 	/*$('#column6 dl dd:nth-child(3)').addClass('smaller');
