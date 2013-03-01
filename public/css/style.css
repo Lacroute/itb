@@ -603,6 +603,32 @@ cursor:pointer;
   text-align:center;
 }
 
+.word-thesaurus {
+  color:#e68c00;
+}
+
+.word-twitter {
+  color:#00aced;
+}
+
+.word-vimeo {
+  color:#167979;
+}
+
+.word-pinterest {
+  color:#ca1f28
+}
+
+.word-dribbble {
+  color:#e14380;
+}
+
+.word-times {
+  color:#000000;
+}
+
+
+
 .clic {
   width:540px !important;
 }
