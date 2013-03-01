@@ -14,10 +14,12 @@ class Synonyms extends api{
 
 		/* this part convert multidimensionnal result array to a simple one */
 		$request = json_decode($request['body']);
-		$it = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($request));
 		$result = array();
-		foreach($it as $v) {
-		  $result[] = $v;
+		if($request){
+			$it = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($request));
+			foreach($it as $v) {
+			  $result[] = $v;
+			}
 		}
 
 		return json_encode($result);

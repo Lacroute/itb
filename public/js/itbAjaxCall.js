@@ -6,17 +6,12 @@ if(word != ""){
 }
 
 function newSearch(query){
-  word = 'sea';
- // ajaxRequest();
-
-  return false;
+  $('#baseWord').val(query);
+  ajaxRequest();
 }
 
 function ajaxRequest(event){
-  alert(word);
-  if(word == ""){
-    word = $('#baseWord').val();
-  }
+  word = $('#baseWord').val();
   form = $("#itbSearch");
   ajaxGenerator(form, 'synonyms');
   ajaxGenerator(form, 'twitter');
@@ -64,21 +59,22 @@ function ajaxRequest(event){
     }
 
     function synonymsGenerator(data){
-      $('#nbSynonymsResults').append(data.length + ' synonymes trouvés');
+      $('#nbSynonymsResults').append($(document.createElement('li')).append(data.length + ' synonymes trouvés pour '+word));
+      
       var parent = $(document.createElement('dl'));
       $('#synonymsResults').append(parent);
       var dd, a;
 
       for (var i = 0; i < data.length; i++) {
         dd = $(document.createElement('dd'));
-        a = "<a href=\"\" onclick=\"newSearch('"+data[i]+"');\">"+data[i]+'</a>';
+        a = "<a href=\"\" onclick=\"newSearch('"+data[i]+"'); return false;\">"+data[i]+'</a>';
         dd.append(a);
         parent.append(dd);
       }
     }
 
     function twitterGenerator(data){
-      $('#nbTwitterResults').append(data.length + ' #tweets trouvés');
+      $('#nbTwitterResults').append($(document.createElement('li')).append(data.length + ' #tweets trouvés pour '+word));
       var parent = $('#twitterResults');
       var dl, dd, dt;
 
@@ -101,7 +97,7 @@ function ajaxRequest(event){
     }
 
     function vimeoGenerator(data){
-      $('#nbVimeoResults').append(data.length + ' vidéos trouvées');
+      $('#nbVimeoResults').append($(document.createElement('li')).append(data.length + ' vidéos trouvées pour '+word));
       var parent = $('#vimeoResults');
       var dl, dd, dt;
 
@@ -124,11 +120,12 @@ function ajaxRequest(event){
     }
 
     function imageGenerator(data, api){
+      
       if(api == 'pinterest'){
-        $('#nbPinterestResults').append(data['results'].length + ' pins trouvés');
+        $('#nbPinterestResults').append($(document.createElement('li')).append(data['results'].length + ' pins trouvés pour '+word)); 
         var parent = $('#pinterestResults');
       }else if(api == 'dribbble'){
-        $('#nbDribbbleResults').append(data['results'].length + ' shots trouvés');
+        $('#nbDribbbleResults').append($(document.createElement('li')).append(data['results'].length + ' shots trouvés pour '+word));
         var parent = $('#dribbbleResults');
       }
       var dl, dd, dt;
@@ -152,7 +149,7 @@ function ajaxRequest(event){
     }
 
     function newsGenerator(data){
-      $('#nbNewsResults').append(data.length + ' articles trouvés');
+      $('#nbNewsResults').append($(document.createElement('li')).append(data.length + ' articles trouvés pour '+word));
       var parent = $('#newsResults');
       var dl, dd, dt;
 
