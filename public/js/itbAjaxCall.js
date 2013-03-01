@@ -60,11 +60,12 @@ function ajaxRequest(event){
       $('#nbSynonymsResults').append(data.length + ' synonymes trouvés');
       var parent = $(document.createElement('dl'));
       $('#synonymsResults').append(parent);
-      var dd;
+      var dd, a;
 
       for (var i = 0; i < data.length; i++) {
         dd = $(document.createElement('dd'));
-        dd.append(data[i]);
+        a = '<a href="/itb/dashboard/'+idBrain+'/search/'+data[i]+'">'+data[i]+'</a>';
+        dd.append(a);
         parent.append(dd);
       }
     }
