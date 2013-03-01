@@ -5,8 +5,15 @@ if(word != ""){
   ajaxRequest();
 }
 
+function newSearch(query){
+  word = 'sea';
+ // ajaxRequest();
+
+  return false;
+}
 
 function ajaxRequest(event){
+  alert(word);
   if(word == ""){
     word = $('#baseWord').val();
   }
@@ -64,7 +71,7 @@ function ajaxRequest(event){
 
       for (var i = 0; i < data.length; i++) {
         dd = $(document.createElement('dd'));
-        a = '<a href="/itb/dashboard/'+idBrain+'/search/'+data[i]+'">'+data[i]+'</a>';
+        a = "<a href=\"\" onclick=\"newSearch('"+data[i]+"');\">"+data[i]+'</a>';
         dd.append(a);
         parent.append(dd);
       }
