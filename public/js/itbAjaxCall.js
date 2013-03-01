@@ -71,7 +71,7 @@ function ajaxRequest(event){
 
       for (var i = 0; i < data.length; i++) {
         dd = $(document.createElement('dd'));
-        a = "<a href=\"\" onclick=\"newSearch('"+data[i]+"'); return false;\">"+data[i]+'</a>';
+        a = "<a href=\"\" onclick=\"newSearch('"+data[i]+"'); return false;\">"+data[i]+'<span class="relance"></span></a>';
         dd.append(a);
         parent.append(dd);
       }

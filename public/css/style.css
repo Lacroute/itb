@@ -599,7 +599,7 @@ cursor:pointer;
   list-style:none;
   float:right;
   padding:0;
-  width:255px;
+  width:254px;
   text-align:center;
 }
 
@@ -914,13 +914,22 @@ dd, dt {
 
 #column1 dl a {
   color:#e68c00;
+  text-decoration:none;
 }
 
 #column1 dl dd:hover {
   padding:2px 5px;
   font-size:24px;
   cursor:pointer;
-  background:#272727 url(../images/sprite.png) no-repeat right center;
-  background-position:bottom right;
+  background:#272727;
   color:white;
+}
+
+#column1 dl dd:hover .relance {
+  background:url(../images/sprite.png) no-repeat right center;
+  background-position:bottom right;
+  display:block;
+  width:30px;
+  height:30px;
+  float:right;
 }
