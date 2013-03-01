@@ -11,6 +11,10 @@ function newSearch(query){
 }
 
 function ajaxRequest(event){
+  $('html, body').animate({  
+    scrollLeft:$('#column1').offset().left - 350
+  }, 'slow');
+
   word = $('#baseWord').val();
   form = $("#itbSearch");
   ajaxGenerator(form, 'synonyms');
@@ -59,7 +63,7 @@ function ajaxRequest(event){
     }
 
     function synonymsGenerator(data){
-      $('#nbSynonymsResults').append($(document.createElement('li')).append(data.length + ' synonymes trouvés pour '+word));
+      $('#nbSynonymsResults').append($(document.createElement('li')).append(data.length + ' synonymes trouvés pour <span class="word-thesaurus">'+word+'</span>'));
       
       var parent = $(document.createElement('dl'));
       $('#synonymsResults').append(parent);
@@ -74,7 +78,7 @@ function ajaxRequest(event){
     }
 
     function twitterGenerator(data){
-      $('#nbTwitterResults').append($(document.createElement('li')).append(data.length + ' #tweets trouvés pour '+word));
+      $('#nbTwitterResults').append($(document.createElement('li')).append(data.length + ' #tweets trouvés <span class="word-twitter">'+word+'</span>'));
       var parent = $('#twitterResults');
       var dl, dd, dt;
 
@@ -97,7 +101,7 @@ function ajaxRequest(event){
     }
 
     function vimeoGenerator(data){
-      $('#nbVimeoResults').append($(document.createElement('li')).append(data.length + ' vidéos trouvées pour '+word));
+      $('#nbVimeoResults').append($(document.createElement('li')).append(data.length + ' vidéos trouvées pour <span class="word-vimeo">'+word+'</span>'));
       var parent = $('#vimeoResults');
       var dl, dd, dt;
 
@@ -122,10 +126,10 @@ function ajaxRequest(event){
     function imageGenerator(data, api){
       
       if(api == 'pinterest'){
-        $('#nbPinterestResults').append($(document.createElement('li')).append(data['results'].length + ' pins trouvés pour '+word)); 
+        $('#nbPinterestResults').append($(document.createElement('li')).append(data['results'].length + ' pins trouvés pour <span class="word-pinterest">'+word+'</span>')); 
         var parent = $('#pinterestResults');
       }else if(api == 'dribbble'){
-        $('#nbDribbbleResults').append($(document.createElement('li')).append(data['results'].length + ' shots trouvés pour '+word));
+        $('#nbDribbbleResults').append($(document.createElement('li')).append(data['results'].length + ' shots trouvés pour <span class="word-dribbble">'+word+'</span>'));
         var parent = $('#dribbbleResults');
       }
       var dl, dd, dt;
@@ -149,7 +153,7 @@ function ajaxRequest(event){
     }
 
     function newsGenerator(data){
-      $('#nbNewsResults').append($(document.createElement('li')).append(data.length + ' articles trouvés pour '+word));
+      $('#nbNewsResults').append($(document.createElement('li')).append(data.length + ' articles trouvés pour <span class="word-times">'+word+'</span>'));
       var parent = $('#newsResults');
       var dl, dd, dt;
 
