@@ -10,6 +10,10 @@ function newSearch(query){
   ajaxRequest();
 }
 
+function scrollTo(target){
+  $('html, body').animate({scrollTop:target.offset().top}, 1500, 'easeInSine');
+}
+
 function ajaxRequest(event){
   $('html, body').animate({  
     scrollLeft:$('#column1').offset().left - 350
@@ -63,10 +67,10 @@ function ajaxRequest(event){
     }
 
     function synonymsGenerator(data){
-      $('#nbSynonymsResults').append($(document.createElement('li')).append(data.length + ' synonymes trouvés pour <span class="word-thesaurus">'+word+'</span>'));
+      $('#nbSynonymsResults').prepend($(document.createElement('li')).append(data.length + ' synonymes trouvés pour <span class="word-thesaurus">'+word+'</span>'));
       
       var parent = $(document.createElement('dl'));
-      $('#synonymsResults').append(parent);
+      $('#synonymsResults').prepend(parent);
       var dd, a;
 
       for (var i = 0; i < data.length; i++) {
@@ -78,8 +82,9 @@ function ajaxRequest(event){
     }
 
     function twitterGenerator(data){
-      $('#nbTwitterResults').append($(document.createElement('li')).append(data.length + ' #tweets trouvés <span class="word-twitter">'+word+'</span>'));
-      var parent = $('#twitterResults');
+      $('#nbTwitterResults').prepend($(document.createElement('li')).append(data.length + ' #tweets trouvés <span class="word-twitter">'+word+'</span>'));
+      var parent = $(document.createElement('div'));
+      $('#twitterResults').prepend(parent);
       var dl, dd, dt;
 
       for (var i = 0; i < data.length; i++) {
@@ -101,8 +106,9 @@ function ajaxRequest(event){
     }
 
     function vimeoGenerator(data){
-      $('#nbVimeoResults').append($(document.createElement('li')).append(data.length + ' vidéos trouvées pour <span class="word-vimeo">'+word+'</span>'));
-      var parent = $('#vimeoResults');
+      $('#nbVimeoResults').prepend($(document.createElement('li')).append(data.length + ' vidéos trouvées pour <span class="word-vimeo">'+word+'</span>'));
+      var parent = $(document.createElement('div'));
+      $('#vimeoResults').prepend(parent);
       var dl, dd, dt;
 
       for (var i = 0; i < data.length; i++) {
@@ -124,13 +130,14 @@ function ajaxRequest(event){
     }
 
     function imageGenerator(data, api){
+      var parent = $(document.createElement('div'));
       
       if(api == 'pinterest'){
-        $('#nbPinterestResults').append($(document.createElement('li')).append(data['results'].length + ' pins trouvés pour <span class="word-pinterest">'+word+'</span>')); 
-        var parent = $('#pinterestResults');
+        $('#nbPinterestResults').prepend($(document.createElement('li')).append(data['results'].length + ' pins trouvés pour <span class="word-pinterest">'+word+'</span>')); 
+        $('#pinterestResults').prepend(parent);
       }else if(api == 'dribbble'){
-        $('#nbDribbbleResults').append($(document.createElement('li')).append(data['results'].length + ' shots trouvés pour <span class="word-dribbble">'+word+'</span>'));
-        var parent = $('#dribbbleResults');
+        $('#nbDribbbleResults').prepend($(document.createElement('li')).append(data['results'].length + ' shots trouvés pour <span class="word-dribbble">'+word+'</span>'));
+        $('#dribbbleResults').prepend(parent);
       }
       var dl, dd, dt;
 
@@ -153,8 +160,9 @@ function ajaxRequest(event){
     }
 
     function newsGenerator(data){
-      $('#nbNewsResults').append($(document.createElement('li')).append(data.length + ' articles trouvés pour <span class="word-times">'+word+'</span>'));
-      var parent = $('#newsResults');
+      $('#nbNewsResults').prepend($(document.createElement('li')).append(data.length + ' articles trouvés pour <span class="word-times">'+word+'</span>'));
+      var parent = $(document.createElement('div'));
+      $('#newsResults').prepend(parent);
       var dl, dd, dt;
 
       for (var i = 0; i < data.length; i++) {
