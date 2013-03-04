@@ -24,10 +24,6 @@ class BrainModel extends Prefab{
 		// $contributor->idUser = F3::get('SESSION.idUser');
 		// $contributor->idBrain = $idBrain;
 		// $contributor->save();
-
-		//on crée le dossier avec comme nom l'id du Brain inséré.
-		mkdir(F3::get('brain_path').'/'.$idBrain, 0777, true);
-
 		return $idBrain;
 	}
 

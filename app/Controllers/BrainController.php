@@ -22,7 +22,12 @@ class BrainController{
 				"name" => F3::get('POST.name-input'),
 			);
 			$addBrain = BrainModel::instance()->addBrain($data);
-			
+			//on crée le dossier avec comme nom l'id du Brain inséré.
+			mkdir(F3::get('brain_path').'/'.$idBrain, 0777, true);
+
+			//TODO Create virgin json
+			// {"idUser":"3","brainName":"Mon premier brain", "items":[]}
+
 			F3::reroute('/dashboard/'.$addBrain.'/search/'.F3::get('POST.search-input'));
       		break;
       	}
@@ -52,6 +57,16 @@ class BrainController{
 	        F3::reroute('/dashboard/'.F3::get('PARAMS.id').'/search/'.F3::get('POST.baseWord'));
 	        break;
 	    }
+  	}
+
+  	function addItem($item){
+
+  		//get data.json
+  		json_decode (data.json);
+  		array_push($item);
+  		file_put_contents('data.json', json_encode($json));
+
+
   	}
 
 	function edit($id){
