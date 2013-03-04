@@ -120,6 +120,8 @@ function ajaxRequest(event){
         dd.append(a);
         parent.append(dd);
       }
+
+      $('#'+api+'Loader').fadeOut(500, function() {$(this).remove();});
     }
 
     function twitterGenerator(data){
@@ -146,6 +148,8 @@ function ajaxRequest(event){
         dl.append(a);
         parent.append(dl);
       }
+
+      $('#'+api+'Loader').fadeOut(500, function() {$(this).remove();});
     }
 
     function vimeoGenerator(data){
@@ -172,6 +176,8 @@ function ajaxRequest(event){
         dl.append(a);
         parent.append(dl);
       }
+
+      $('#'+api+'Loader').fadeOut(500, function() {$(this).remove();});
     }
 
     function imageGenerator(data, api){
@@ -204,6 +210,8 @@ function ajaxRequest(event){
         dl.append(a);
         parent.append(dl);
       }
+
+      $('#'+api+'Loader').fadeOut(500, function() {$(this).remove();});
     }
 
     function newsGenerator(data){
@@ -233,6 +241,8 @@ function ajaxRequest(event){
         dl.append(a);
         parent.append(dl);
       }
+
+      $('#'+api+'Loader').fadeOut(500, function() {$(this).remove();});
     }
 
   }
