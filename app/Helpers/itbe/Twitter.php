@@ -9,7 +9,6 @@ class Twitter extends api{
 	$twitter->search('word');
 	*/
 	function search($keyword){
-		$keyword = 'love';
 		$request = \Web::instance()->request('http://search.twitter.com/search.json?q='.$keyword.'&rpp=10&include_entities=true&result_type=recent');
 		$request = json_decode($request['body']);
 

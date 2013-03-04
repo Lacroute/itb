@@ -10,11 +10,8 @@ function newSearch(query){
   ajaxRequest();
 }
 
-function scrollTo(target){
-  $('html, body').animate({scrollTop:target.offset().top}, 1500, 'easeInSine');
-}
-
 function ajaxRequest(event){
+
   $('html, body').animate({  
     scrollLeft:$('#column1').offset().left - 350
   }, 'slow');
@@ -63,6 +60,7 @@ function ajaxRequest(event){
         default:
           console.log('impossible de récupérer '+api);
           break;
+
       }
     }
 
