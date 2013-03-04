@@ -74,9 +74,9 @@ class BrainController{
   		fclose($jsonFile);
   	}
 
-	function edit($id){
-		// Ici on edite un brainstorming
-		echo $id;
+	function edit(){
+		$json = F3::get('POST.json');
+		file_put_contents(F3::get('brain_path').'/'.F3::get('PARAMS.id').'/data.json', json_encode($json));
 	}
 
 	function remove($id){
