@@ -66,10 +66,12 @@ class BrainController{
 	    }
   	}
 
-  	function addItem($item){
+  	function addItem(){
+  		var_dump(F3::get('POST'));
+  		$item = F3::get('POST');
   		$jsonFile = fopen(F3::get('brain_path').'/'.F3::get('PARAMS.id').'/data.json', 'r+');
-  		$jsonArray = json_decode(fgets($jsonFile));
-  		$jsonArray->items = json_decode($item);
+  		$jsonArray = json_decode(fgets($jsonFile), true);
+  		$jsonArray['items'][] = $item;
   		file_put_contents(F3::get('brain_path').'/'.F3::get('PARAMS.id').'/data.json', json_encode($jsonArray));
   		fclose($jsonFile);
   	}

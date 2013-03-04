@@ -11,8 +11,36 @@ function newSearch(query){
 }
 
 function addItem(event){
-  var data = event.data;
-  // Todo call ajax brainController->additem
+  var postdata = [];
+  var data = event.data.item
+  var dataType = $(this).attr('data-type');
+  switch(dataType){
+    case 'synonym':
+      postdata = {'type': dataType, 'word': data['username'], 'posX': '', 'posY': ''};
+      break;
+    case 'tweet':
+      postdata = {'type': dataType, 'username': data['username'], 'text':data['text'], 'posX': '', 'posY': ''};
+      break;
+    case 'dribbble':
+      postdata = {'type': dataType, 'title': data['title'], 'full':data['full'], 'thumbnail':data['thumbnail'], 'posX': '', 'posY': ''};
+      break;
+    case 'pinterest':
+      postdata = {'type': dataType, 'title': data['title'], 'full':data['full'], 'thumbnail':data['thumbnail'], 'posX': '', 'posY': ''};
+      break;
+    case 'video':
+      postdata = {'type': dataType, 'title': data['title'], 'id':data['id'], 'posX': '', 'posY': ''};
+      break;
+    case 'news':
+    postdata = {'type': dataType, 'title': data['title'], 'text':data['body'], 'url':data['url'], 'posX': '', 'posY': ''};
+      break;
+  }
+
+  var url = '/itb/dashboard/'+idBrain+'/addItem';
+  var request = $.post(
+    url,
+    postdata,
+    "json"            
+  );
   return false;
 }
 
@@ -66,7 +94,6 @@ function ajaxRequest(event){
         default:
           console.log('impossible de récupérer '+api);
           break;
-
       }
     }
 
@@ -94,7 +121,7 @@ function ajaxRequest(event){
       for (var i = 0; i < data.length; i++) {
         dl = $(document.createElement('dl'));
         dt = $(document.createElement('dt'));
-        dt.append('> from <a href="#">@'+data[i]['from_user']+'</a>');
+        dt.append('> from <a href="#">@'+data[i]['username']+'</a>');
         dl.append(dt);
         dd = $(document.createElement('dd'));
         dd.append('<div class="sep"></div>');
@@ -104,6 +131,7 @@ function ajaxRequest(event){
         dl.append(dd);
         a = $(document.createElement('a'));
         a.attr('class', 'add');
+        a.attr('data-type', 'tweet');
         a.bind('click', {item: data[i]}, addItem);
         dl.append(a);
         parent.append(dl);
@@ -127,9 +155,11 @@ function ajaxRequest(event){
         dd = $(document.createElement('dd'));
         dd.append('<iframe src="http://player.vimeo.com/video/'+data[i]['id']+'?byline=0&badge=0&color=d01e2f&title=0&portrait=0&" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
         dl.append(dd);
-        dd = $(document.createElement('dd'));
-        dd.attr('class', 'add');
-        dl.append(dd);
+        a = $(document.createElement('a'));
+        a.attr('class', 'add');
+        a.attr('data-type', 'video');
+        a.bind('click', {item: data[i]}, addItem);
+        dl.append(a);
         parent.append(dl);
       }
     }
@@ -157,9 +187,11 @@ function ajaxRequest(event){
         dd = $(document.createElement('dd'));
         dd.append('<a href="'+data['results'][i]['full']+'"><img src="'+data['results'][i]['thumbnail']+'" width="100%"></a>');
         dl.append(dd);
-        dd = $(document.createElement('dd'));
-        dd.attr('class', 'add');
-        dl.append(dd);
+        a = $(document.createElement('a'));
+        a.attr('class', 'add');
+        a.attr('data-type', api);
+        a.bind('click', {item: data['results'][i]}, addItem);
+        dl.append(a);
         parent.append(dl);
       }
     }
@@ -184,10 +216,11 @@ function ajaxRequest(event){
         dl.append(dd);
         dd = $(document.createElement('dd'));
         dd.attr('class', 'slide');
-        dl.append(dd);
-        dd = $(document.createElement('dd'));
-        dd.attr('class', 'add');
-        dl.append(dd);
+        a = $(document.createElement('a'));
+        a.attr('class', 'add');
+        a.attr('data-type', 'news');
+        a.bind('click', {item: data[i]}, addItem);
+        dl.append(a);
         parent.append(dl);
       }
     }

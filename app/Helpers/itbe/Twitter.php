@@ -13,9 +13,9 @@ class Twitter extends api{
 		$request = json_decode($request['body']);
 
 		$request = $request->results;
-		foreach($request as $i=>$twit) {
-			$result[$i]['from_user'] = $twit->from_user;
-			$result[$i]['text'] = $twit->text;
+		foreach($request as $i=>$tweet) {
+			$result[$i]['username'] = $tweet->from_user;
+			$result[$i]['text'] = $tweet->text;
 		}
 
 		return json_encode($result);
