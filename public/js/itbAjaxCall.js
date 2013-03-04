@@ -168,6 +168,7 @@ function ajaxRequest(event){
       for (var i = 0; i < data.length; i++) {
         dl = $(document.createElement('dl'));
         dt = $(document.createElement('dt'));
+  
         dt.append('<p><a href="'+data[i]['url']+'" target="blank">'+data[i]['title']+'</a></p>');
         dl.append(dt);
         dd = $(document.createElement('dd'));

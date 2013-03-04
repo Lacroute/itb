@@ -332,6 +332,306 @@ h2 {
   clear:both;
 }
 
+
+
+/***********LOADER***********/
+
+@-webkit-keyframes ui-spinner-rotate-right {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(360deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes ui-spinner-rotate-left {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes ui-spinner-rotate-right {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+
+  25% {
+    -moz-transform: rotate(180deg);
+  }
+
+  50% {
+    -moz-transform: rotate(180deg);
+  }
+
+  75% {
+    -moz-transform: rotate(360deg);
+  }
+
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes ui-spinner-rotate-left {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+
+  25% {
+    -moz-transform: rotate(0deg);
+  }
+
+  50% {
+    -moz-transform: rotate(180deg);
+  }
+
+  75% {
+    -moz-transform: rotate(180deg);
+  }
+
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@keyframes ui-spinner-rotate-right {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ui-spinner-rotate-left {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ui-spinner {
+  position: relative;
+  border-radius: 100%;
+}
+.ui-spinner .side {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+.ui-spinner .side .fill {
+  border-radius: 999px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -ms-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+.ui-spinner .side-left {
+  left: 0;
+}
+.ui-spinner .side-left .fill {
+  left: 100%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-animation-name: ui-spinner-rotate-left;
+  -moz-animation-name: ui-spinner-rotate-left;
+  -ms-animation-name: ui-spinner-rotate-left;
+  -o-animation-name: ui-spinner-rotate-left;
+  animation-name: ui-spinner-rotate-left;
+  -webkit-transform-origin: 0 50%;
+  -moz-transform-origin: 0 50%;
+  -ms-transform-origin: 0 50%;
+  -o-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+}
+.ui-spinner .side-right {
+  left: 50%;
+}
+.ui-spinner .side-right .fill {
+  left: -100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -webkit-animation-name: ui-spinner-rotate-right;
+  -moz-animation-name: ui-spinner-rotate-right;
+  -ms-animation-name: ui-spinner-rotate-right;
+  -o-animation-name: ui-spinner-rotate-right;
+  animation-name: ui-spinner-rotate-right;
+  -webkit-transform-origin: 100% 50%;
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -o-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+}
+
+.example-hole {
+  width: 100px;
+  float:left;
+  height: 100px;
+  position:absolute;
+  left:25px;
+  top:25px;
+}
+
+.example-hole .ui-spinner {
+  width: 100px;
+  height: 100px;
+  background: #343939;
+  border:2px solid #343939;
+}
+
+.example-hole .ui-spinner .side .fill {
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -ms-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+}
+
+.example-hole .ui-spinner:after {
+  content: "";
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  top: 12px;
+  left: 12px;
+  display: block;
+}
+
+#column1 .example-hole .ui-spinner .side .fill {
+  background: #e68c00;
+}
+
+#column1 .example-hole .ui-spinner:after {
+  background:url(../images/sprite.png);
+  background-position: -359px -561px;
+}
+
+#column2 .example-hole .ui-spinner .side .fill {
+  background: #00aced;
+}
+
+#column2 .example-hole .ui-spinner:after {
+  background:url(../images/sprite.png);
+  background-position: -359px -257px;
+}
+
+#column3 .example-hole .ui-spinner .side .fill {
+  background: #167979;
+}
+
+#column3 .example-hole .ui-spinner:after {
+  background:url(../images/sprite.png);
+  background-position: -359px -333px;
+}
+
+#column4 .example-hole .ui-spinner .side .fill {
+  background: #ca1f28;
+}
+
+#column4 .example-hole .ui-spinner:after {
+  background:url(../images/sprite.png);
+  background-position: -359px -409px;
+}
+
+#column3 .example-hole .ui-spinner .side .fill {
+  background: #167979;
+}
+
+#column3 .example-hole .ui-spinner:after {
+  background:url(../images/sprite.png);
+  background-position: -359px -333px;
+}
+
+#column5 .example-hole .ui-spinner .side .fill {
+  background: #f875a5;
+}
+
+#column5 .example-hole .ui-spinner:after {
+  background:url(../images/sprite.png);
+  background-position: -359px -485px;
+}
+
+#column6 .example-hole .ui-spinner .side .fill {
+  background: white;
+}
+
+#column6 .example-hole .ui-spinner:after {
+  background:url(../images/sprite.png);
+  background-position: -359px -637px;
+}
+
+
+
+
 /**********NAVIGATION**********/
 
 #navigation { background:#272727; height:10px; width:100%; text-align:center; padding:0 0 30px;color:white;position:fixed;top:0;}
@@ -592,6 +892,7 @@ cursor:pointer;
   height:148px;
   outline:1px solid #bfbfbf;
   border-bottom:2px solid #787878;
+  position:relative;
 }
 
 .data ul {
