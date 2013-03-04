@@ -23,6 +23,8 @@ p { font-size: 73%;}
 }
 
 .champs input[type="submit"]{
+	padding:0 10px;
+	height:29px;
 }
 
 
