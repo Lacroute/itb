@@ -11,12 +11,22 @@ p {font-size: 73%;}
 #connect span:hover {background:#262626;color:#ebe261;cursor:pointer;}
 #connect p {margin:0;}
 .connect {margin-top:0 !important; -webkit-transition: all .6s ease-in; -moz-transition: all .6s ease-in; -o-transition: all .6s ease-in; transition: all .6s ease-in;}
-.champs {padding-top:11px;display:inline-block;width:100%;text-align:center;}
-.champs form {display:inline-block;}
-.champs input {color:#A2A2A2;height:25px;border:1px solid black;background:#272727 !important;outline:none;margin:0 20px 0 10px;padding-left:5px;}
-.champs input[type="submit"]{padding:0 10px;height:29px;}
-.close {overflow:hidden;cursor:pointer;width:25px;height:23px;padding:0 !important;float:right;background:url(../images/sprite.png) no-repeat;background-position: left top;line-height:23px !important;margin-right:20px !important;}
-.close:hover {background:url(../images/sprite.png) no-repeat !important;background-position: left top;}
+#champs {padding-top:11px;display:inline-block;width:100%;text-align:center;}
+#champs form {display:inline-block;}
+#champs input {color:#A2A2A2;height:25px;border:1px solid black;background:#272727 !important;outline:none;margin:0 20px 0 10px;padding-left:5px;}
+#champs input[type="submit"]{padding:0 10px;height:29px;}
+#champs .close {overflow:hidden;cursor:pointer;width:25px;height:23px;padding:0 !important;float:right;background:url(../images/sprite.png) no-repeat;background-position: left top;line-height:23px !important;margin-right:20px !important;}
+#champs .close:hover {background:url(../images/sprite.png) no-repeat !important;background-position: left top;}
+
+
+
+#register {width:100%;height:100%;background:rgba(0, 0, 0, 0.7);top:0;left:0;z-index:1;position:fixed;}
+#wrapperForm {border-radius:5px;width:30%;margin:0 auto;background:url('../images/bg-header.png') repeat top center;text-align:center;padding:50px 0;margin-top:17%;}
+#register form {display:inline-block;}
+#formRegister input {display:block;margin:10px auto;outline:none;margin-bottom:20px;padding:5px;}
+#formRegister input[type="submit"]{color:#A2A2A2;height:25px;border:1px solid black;background:#272727 !important;outline:none;margin:20px 0;padding:5px 10px;height:29px;margin:0 auto;}
+#register .close {overflow:hidden;cursor:pointer;width:25px;height:23px;background:url(../images/sprite.png) no-repeat;background-position: left top;display:inline-block;float:right;margin-right:20px;margin-top:-30px;}
+
 
 
 header { background: rgba(0,0,0,0.9); width: 100%; height: 60px; }
