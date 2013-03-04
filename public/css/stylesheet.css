@@ -1,31 +1,22 @@
-html {height:100%;}
-body { background: url('../images/bkg.jpg') repeat top center;position:relative;min-height:100%;}
+html {min-height:100%; background:#181818;}
+body {background: url('../images/bkg.jpg') repeat top center;position:relative;min-height:100%;}
 a {text-decoration: none;}
-p { font-size: 73%;}
+p {font-size: 73%;}
 
 .cl { clear: both;}
 .sep { height: 2px; width: 500px; background: #d5d5d5; margin: 30px auto;}
 
-#connect { background:url('../images/bg-header.png') repeat top center; height:10px; width:100%; text-align:center; padding:0 0 40px;color:#262626;margin-top:-50px;}
-#connect a { color:#262626;text-decoration:none; font-family: 'Arvo', serif; font-size:14px;display:inline-block;padding:0 10px;line-height:50px;margin:0;}
-#connect a:hover {background:#262626;color:#ebe261;}
+#connect {background:url('../images/bg-header.png') repeat top center; height:10px; width:100%; text-align:center; padding:0 0 40px;color:#262626;margin-top:-50px;}
+#connect span { color:#262626;text-decoration:none; font-family: 'Arvo', serif; font-size:14px;display:inline-block;padding:0 10px;line-height:50px;margin:0;}
+#connect span:hover {background:#262626;color:#ebe261;cursor:pointer;}
 #connect p {margin:0;}
-.connect { margin-top:0 !important;  -webkit-transition: all .6s ease-in; -moz-transition: all .6s ease-in; -o-transition: all .6s ease-in; transition: all .6s ease-in;}
-.champs {padding-top:11px;}
-.champs input, .champs input:-webkit-autofill {
-  color:#A2A2A2;
-  height:25px;
-  border:1px solid black;
-  background:#272727 !important;
-  outline:none;
-  margin:0 20px 0 10px;
-  padding-left:5px;
-}
-
-.champs input[type="submit"]{
-	padding:0 10px;
-	height:29px;
-}
+.connect {margin-top:0 !important; -webkit-transition: all .6s ease-in; -moz-transition: all .6s ease-in; -o-transition: all .6s ease-in; transition: all .6s ease-in;}
+.champs {padding-top:11px;display:inline-block;width:100%;text-align:center;}
+.champs form {display:inline-block;}
+.champs input {color:#A2A2A2;height:25px;border:1px solid black;background:#272727 !important;outline:none;margin:0 20px 0 10px;padding-left:5px;}
+.champs input[type="submit"]{padding:0 10px;height:29px;}
+.close {overflow:hidden;cursor:pointer;width:25px;height:23px;padding:0 !important;float:right;background:url(../images/sprite.png) no-repeat;background-position: left top;line-height:23px !important;margin-right:20px !important;}
+.close:hover {background:url(../images/sprite.png) no-repeat !important;background-position: left top;}
 
 
 header { background: rgba(0,0,0,0.9); width: 100%; height: 60px; }
@@ -56,18 +47,18 @@ header nav ul li a:hover{ border: 1px solid #fff;border-radius: 20px; color:#fff
 
 h4 { font-family: 'Arvo', serif; font-size:24px;color:#262626; padding-bottom:20px !important;}
 
-#gototop { width: 98px; height: 28px; margin: 15px auto 15px; background: #e9e9e9; border: #d5d5d5 solid 1px; box-shadow: 0px 2px 0 #7b7b7b;}
+#gototop { width: 98px; height: 28px; margin: 30px auto 15px; background: #e9e9e9; border: #d5d5d5 solid 1px; box-shadow: 0px 2px 0 #7b7b7b;}
 #gototop a { width: 98px; height: 28px;}
 
-footer { width:100%;  height: 50px; background: #181818; position:absolute;}
+footer { width:100%;  height: 50px; background: #181818; position:relative;bottom:0;}
 .yellow { height:10px; width: 780px; background: #ebe261; margin: 0 auto;}
 footer p {width: 800px; text-align: center; margin: 0 auto; padding: 10px 0 0; color: rgba(255,255,255,0.5);}
-#footerdash {position:absolute;bottom:0;}
+#footerdash {position:relative;bottom:0;}
 
 #search {border-bottom:1px solid #262626;padding:30px 0;text-align:center;}
 #search-input {outline:1px solid white;border:1px solid #cacaca;width:870px;height:70px;padding-left:90px;position:relative;background:url('../images/bg-input.png') no-repeat top left #fdfdfd;font-size:24px;}
 #name-input {outline:1px solid white;border:1px solid #cacaca;width:870px;height:70px;padding-left:90px;position:relative;background:url('../images/bg-name.png') no-repeat top left #fdfdfd;font-size:24px;margin-bottom:20px;}
-
+#search input[type="submit"]{color:#A2A2A2;height:25px;border:1px solid black;background:#272727 !important;outline:none;margin:20px 20px 0 10px;padding-left:5px;padding:0 10px;height:29px;}
 
 /***********DASHBOARD***********/
 

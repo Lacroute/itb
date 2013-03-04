@@ -14,9 +14,13 @@
 		$(this).toggleClass('active');
 	});
 
+	$('.champs').hide();
+	$('.login').click(function(){
+		$('.choice').hide();
+		$('.champs').show();
+	});
 
 	$('#search').hide();
-
 
 	$('dl').click(function(){
 		$('#search').slideDown(1000);		
