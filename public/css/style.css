@@ -641,11 +641,13 @@ h2 {
 
 /**********NAVIGATION**********/
 
-#navigation { background:#272727; height:10px; width:100%; text-align:center; padding:0 0 30px;color:white;position:fixed;top:0;}
-#navigation a { color:white;text-decoration:none; font-family: 'Arvo', serif; font-size:14px;display:inline-block;padding:0 20px;line-height:40px;margin:0;}
+#navigation {background:#272727; height:10px; width:100%; text-align:center; padding:0 0 30px;color:white;position:fixed;top:0;}
+#navigation a {color:white;text-decoration:none; font-family: 'Arvo', serif; font-size:14px;display:inline-block;padding:0 20px;line-height:40px;margin:0;}
 #navigation a:hover {background:#262626;color:#ebe261;}
-#navigation ul li:first-child {float:left;}
-#navigation ul li:nth-child(2) {float:right;}
+#navigation ul {text-align:center;width:100%;}
+#navigation ul li:first-child{position:absolute;left:10px;}
+#navigation ul li:nth-child(2){width:90px; height:20px; background:url(../images/sprite.png); background-position: -245px 0px;position:absolute;left:47%;top:10px;}
+#navigation ul li:nth-child(3){position:absolute;right:10px;top}
 
 /**********ASIDE**********/
 
@@ -671,9 +673,10 @@ input[type=search] {
   color:white;
   border:none;
   background:#272727;
-  margin:5px 0 20px;
+  margin:20px 0;
   padding-left:4%;
   outline:none;
+  font-size:1.3em;
 }
 
 aside nav a {

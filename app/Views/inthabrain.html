@@ -26,10 +26,17 @@
     <!-- Add your site or application content here -->
 
     <section id="connect">
-      <p>
-        <?php $session = F3::get('SESSION.idUser');if(!isset($session)):?><a href="user/login/">Login</a> | <a href="user/create">Register</a>
-        <?php else: ?><a href="user/logout">Logout</a><?php endif; ?>
-      </p>
+
+
+      <div class="champs">
+        <form action="" method="post">
+          <label>Email</label>
+          <input type="text" name="email" placeholder="mail"/>
+          <label>Password</label>
+          <input type="password" name="password" placeholder="password"/>
+          <input type="submit" value="Connect" /> 
+        </form>
+      </div>
     </section>
 
     <header>
