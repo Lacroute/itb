@@ -120,8 +120,6 @@ function ajaxRequest(event){
         dd.append(a);
         parent.append(dd);
       }
-
-      $('#'+api+'Loader').fadeOut(500, function() {$(this).remove();});
     }
 
     function twitterGenerator(data){
