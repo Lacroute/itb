@@ -10,6 +10,12 @@ function newSearch(query){
   ajaxRequest();
 }
 
+function addItem(event){
+  var data = event.data;
+  // Todo call ajax brainController->additem
+  return false;
+}
+
 function ajaxRequest(event){
 
   $('html, body').animate({  
@@ -96,9 +102,10 @@ function ajaxRequest(event){
         dd = $(document.createElement('dd'));
         dd.append(data[i]['text']);
         dl.append(dd);
-        dd = $(document.createElement('dd'));
-        dd.attr('class', 'add');
-        dl.append(dd);
+        a = $(document.createElement('a'));
+        a.attr('class', 'add');
+        a.bind('click', {item: data[i]}, addItem);
+        dl.append(a);
         parent.append(dl);
       }
     }

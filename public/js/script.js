@@ -10,10 +10,6 @@ $(document).ready(function() {
 	    return false;  
 	});
 
-	$('#column2').click(function(){
-		$(this).toggleClass('big');
-	});
-
 	$('nav a.twitter').click(function(){
 		$('#column2').addClass('big');
 		$('#twitterResults').addClass('columns');
