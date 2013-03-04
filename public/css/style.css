@@ -1249,6 +1249,9 @@ dd, dt {
   color:white;
 }
 
+#column1 dl dd:hover a{
+  cursor: pointer;
+}
 #column1 dl dd:hover .relance,
 #column1 dl dd:hover .ajouter  {
   background:url(../images/sprite.png) no-repeat right center;

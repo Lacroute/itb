@@ -5,8 +5,8 @@ if(word != ""){
   ajaxRequest();
 }
 
-function newSearch(query){
-  $('#baseWord').val(query);
+function newSearch(event){
+  $('#baseWord').val(event.data.newWord);
   ajaxRequest();
 }
 
@@ -16,7 +16,7 @@ function addItem(event){
   var dataType = $(this).attr('data-type');
   switch(dataType){
     case 'synonym':
-      postdata = {'type': dataType, 'word': data['username'], 'posX': '', 'posY': ''};
+      postdata = {'type': dataType, 'word': data, 'posX': '', 'posY': ''};
       break;
     case 'tweet':
       postdata = {'type': dataType, 'username': data['username'], 'text':data['text'], 'posX': '', 'posY': ''};
@@ -106,7 +106,15 @@ function ajaxRequest(event){
 
       for (var i = 0; i < data.length; i++) {
         dd = $(document.createElement('dd'));
-        a = "<a href=\"\" onclick=\"newSearch('"+data[i]+"'); return false;\">"+data[i]+'<span class="ajouter"></span><span class="relance"></span></a>';
+        dd.append(data[i]);
+        a = $(document.createElement('a'));
+        a.attr('class', 'ajouter');
+        a.attr('data-type', 'synonym');
+        a.bind('click', {item: data[i]}, addItem);
+        dd.append(a);
+        a = $(document.createElement('a'));
+        a.attr('class', 'relance');
+        a.bind('click', {newWord: data[i]}, newSearch);
         dd.append(a);
         parent.append(dd);
       }
