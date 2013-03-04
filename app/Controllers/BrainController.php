@@ -30,7 +30,7 @@ class BrainController{
 			$jsonData = array(
 				"idUser" => F3::get('SESSION.idUser'),
 				"brainName" => $data['name'],
-				"items" => "[]",
+				"items" => [],
 			);
 			fwrite($jsonFile, json_encode($jsonData));
 			fclose($jsonFile);

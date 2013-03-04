@@ -27,8 +27,8 @@ function addItem(event){
     case 'pinterest':
       postdata = {'type': dataType, 'title': data['title'], 'full':data['full'], 'thumbnail':data['thumbnail'], 'posX': '', 'posY': ''};
       break;
-    case 'video':
-      postdata = {'type': dataType, 'title': data['title'], 'id':data['id'], 'posX': '', 'posY': ''};
+    case 'vimeo':
+      postdata = {'type': dataType, 'title': data['title'], 'idVimeo':data['id'], 'posX': '', 'posY': ''};
       break;
     case 'news':
     postdata = {'type': dataType, 'title': data['title'], 'text':data['body'], 'url':data['url'], 'posX': '', 'posY': ''};
@@ -41,6 +41,8 @@ function addItem(event){
     postdata,
     "json"            
   );
+  console.log($(this).parent());
+  $(this).parent().fadeOut(500, function() { $(this).remove(); });
   return false;
 }
 
@@ -165,7 +167,7 @@ function ajaxRequest(event){
         dl.append(dd);
         a = $(document.createElement('a'));
         a.attr('class', 'add');
-        a.attr('data-type', 'video');
+        a.attr('data-type', 'vimeo');
         a.bind('click', {item: data[i]}, addItem);
         dl.append(a);
         parent.append(dl);
