@@ -21,14 +21,21 @@ class BrainController{
       		$data = array(
 				"name" => F3::get('POST.name-input'),
 			);
-			$addBrain = BrainModel::instance()->addBrain($data);
+			$idBrain = BrainModel::instance()->addBrain($data);
 			//on crée le dossier avec comme nom l'id du Brain inséré.
 			mkdir(F3::get('brain_path').'/'.$idBrain, 0777, true);
 
-			//TODO Create virgin json
-			// {"idUser":"3","brainName":"Mon premier brain", "items":[]}
+			//on crée le fichier json vierge
+			$jsonFile = fopen(F3::get('brain_path').'/'.$idBrain.'/data.json', 'w');
+			$jsonData = array(
+				"idUser" => F3::get('SESSION.idUser'),
+				"brainName" => $data['name'],
+				"items" => "[]",
+			);
+			fwrite($jsonFile, json_encode($jsonData));
+			fclose($jsonFile);
 
-			F3::reroute('/dashboard/'.$addBrain.'/search/'.F3::get('POST.search-input'));
+			F3::reroute('/dashboard/'.$idBrain.'/search/'.F3::get('POST.search-input'));
       		break;
       	}
 	}
@@ -60,13 +67,11 @@ class BrainController{
   	}
 
   	function addItem($item){
-
-  		//get data.json
-  		json_decode (data.json);
-  		array_push($item);
-  		file_put_contents('data.json', json_encode($json));
-
-
+  		$jsonFile = fopen(F3::get('brain_path').'/'.F3::get('PARAMS.id').'/data.json', 'r+');
+  		$jsonArray = json_decode(fgets($jsonFile));
+  		$jsonArray->items = json_decode($item);
+  		file_put_contents(F3::get('brain_path').'/'.F3::get('PARAMS.id').'/data.json', json_encode($jsonArray));
+  		fclose($jsonFile);
   	}
 
 	function edit($id){
