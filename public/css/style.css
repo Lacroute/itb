@@ -968,7 +968,7 @@ cursor:pointer;
 }
 
 #column1 dl:hover .add {
-  background-position: right top;
+  background-position: right -180px;
 }
 
 #column2 .add {
@@ -977,7 +977,7 @@ cursor:pointer;
 }
 
 #column2 dl:hover .add {
-  background-position: right top;
+  background-position: right -180px;
 }
 
 #column3 .add {
@@ -986,7 +986,7 @@ cursor:pointer;
 }
 
 #column3 dl:hover .add {
-  background-position: right top;
+  background-position: right -180px;
 }
 
 #column4 .add {
@@ -995,7 +995,7 @@ cursor:pointer;
 }
 
 #column4 dl:hover .add {
-  background-position: right top;
+  background-position: right -180px;
 }
 
 #column5 .add {
@@ -1004,7 +1004,7 @@ cursor:pointer;
 }
 
 #column5 dl:hover .add {
-  background-position: right top;
+  background-position: right -180px;
 }
 
 #column6 .add {
@@ -1013,7 +1013,7 @@ cursor:pointer;
 }
 
 #column6 dl:hover .add {
-  background-position: right top;
+  background-position: right -180px;
 }
 
 /**********COLUMN 1**********/
@@ -1229,18 +1229,25 @@ dd, dt {
 }
 
 #column1 dl dd:hover {
-  padding:2px 5px;
+  padding:0 0 2px 5px;
   font-size:24px;
-  cursor:pointer;
   background:#272727;
   color:white;
 }
 
-#column1 dl dd:hover .relance {
+#column1 dl dd:hover .relance,
+#column1 dl dd:hover .ajouter  {
   background:url(../images/sprite.png) no-repeat right center;
   background-position:bottom right;
   display:block;
   width:30px;
-  height:30px;
+  height:35px;
   float:right;
+}
+
+#column1 dl dd:hover .ajouter {
+  height:30px;
+  margin:0 !important;
+  background:url(../images/sprite.png) no-repeat right center;
+  background-position:right -30px;
 }

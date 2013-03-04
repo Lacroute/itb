@@ -13,7 +13,7 @@ p { font-size: 73%;}
 .connect { margin-top:0 !important;  -webkit-transition: all .6s ease-in; -moz-transition: all .6s ease-in; -o-transition: all .6s ease-in; transition: all .6s ease-in;}
 .champs {padding-top:11px;}
 .champs input, .champs input:-webkit-autofill {
-  color:white;
+  color:#A2A2A2;
   height:25px;
   border:1px solid black;
   background:#272727 !important;
