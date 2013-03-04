@@ -119,7 +119,7 @@ $(document).ready(function() {
 
 		$.ajax({
 			type: "POST",
-			url: baseUrl+"/"+brainId+"/edit",
+			url: baseUrl+"/dashboard/"+brainId+"/edit",
 			data: {json: json},
 			success: function(){
 				console.log("SUCCES");
