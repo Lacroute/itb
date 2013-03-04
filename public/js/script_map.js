@@ -1,32 +1,56 @@
 $(document).ready(function() {
 
 	var widthDiv;
-	var heightDiv;
-	var widthDivs;
-	var heightDivs;
+			var heightDiv;
+			var widthDivs;
+			var heightDivs;
+			var widthWindow=window.innerWidth;
+			var heightWindow=window.innerHeight;
+			var margeTop;
+			var margeLeft;
 
+			$('#wrapper').height(heightWindow);
+			$("#container").width(widthWindow*4);
+			$("#container").height(heightWindow*4);
+			positionMap();
 
-   $( "#plus" ).click(function() {
-   		widthDiv = $('#container').width()*1.5;
-   		heightDiv = $('#container').height()*1.5;
-   		widthDivs = $('.blocs').width()*1.5;
-   		heightDivs = $('.blocs').height()*1.5;
-   		$('#container').width(widthDiv);
-		$('#container').height(heightDiv);
-		$('.blocs').width(widthDivs);
-		$('.blocs').height(heightDivs);
-	});
+		   $( "#plus" ).click(function() {
+		   		widthDiv = $('#container').width()*1.2;
+		   		heightDiv = $('#container').height()*1.2;
+		   		widthDivs = $('.blocs').width()*1.2;
+		   		// heightDivs = $('.blocs').height()*1.2;
+		   		updateSize();
+			});
 
-   $( "#moins" ).click(function() {
-   		widthDiv = $('#container').width()/1.5;
-   		heightDiv = $('#container').height()/1.5;
-   		widthDivs = $('.blocs').width()/1.5;
-   		heightDivs = $('.blocs').height()/1.5;
-		$('#container').width(widthDiv);
-		$('#container').height(heightDiv);
-		$('.blocs').width(widthDivs);
-		$('.blocs').height(heightDivs);
-	});
+		   $( "#moins" ).click(function() {
+		   		widthDiv = $('#container').width()/1.2;
+		   		heightDiv = $('#container').height()/1.2;
+		   		widthDivs = $('.blocs').width()/1.2;
+		   		// heightDivs = $('.blocs').height()/1.2;
+				updateSize();
+			});
+
+		   function positionMap()
+		   {
+		   		margeLeft = -($('#container').width()-widthWindow)/2;
+	  			margeTop = -($('#container').height()-heightWindow)/2;
+	  			$('#container').css({'margin-left' : margeLeft});
+	  			$('#container').css({'margin-top' : margeTop});
+		   }
+
+		   function updateSize(){
+
+			   	if (widthDiv>widthWindow) {
+			   		$('#container').width(widthDiv);
+					$('#container').height(heightDiv);
+					$('.blocs').width(widthDivs);
+					// $('.blocs').height(heightDivs);
+					positionMap();
+			    }else{
+			   		alert("Can't zoom anymore");
+			   	};
+
+		   }
 
    initBoard();
 
@@ -95,7 +119,7 @@ $(document).ready(function() {
 
 		$.ajax({
 			type: "POST",
-			url: "create.php",
+			url: baseUrl+"/dashboard/"+brainId+"/edit",
 			data: {json: json},
 			success: function(){
 				console.log("SUCCES");
@@ -105,73 +129,79 @@ $(document).ready(function() {
 
    function initBoard(){
 
-		var data = dataBrain;
-		var items = [];
-		$.each(data.items, function(key, val) {
-			var classType = data.items[key]['type'],
-				posX = data.items[key]['posX'],
-				posY = data.items[key]['posY'],
-				itemId = key;
+	$.getJSON(baseUrl+'/public/brains/'+brainId+'/data.json', function(data) {
+			var items = [];
+			$.each(data.items, function(key, val) {
+				var classType = data.items[key]['type'],
+					posX = data.items[key]['posX'],
+					posY = data.items[key]['posY'],
+					itemId = key;
+					if (posX=="" && posY=="") {
+						posX=Math.floor(Math.random() * (55 - 45) + 45);
+						posY=Math.floor(Math.random() * (55 - 45) + 45);
+					};
 
-			switch(classType){
+				switch(classType){
 
-				case "tweet":
-					var text = data.items[key]['text'],
-						username = data.items[key]['username'],
-						twitpic = data.items[key]['userpic'];
-					items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><img src="'+twitpic+'" /><span>'+username+'</span><a class="btnplus"></a><p>'+text+'</p></div>');
-					break;
+					case "tweet":
+						var text = data.items[key]['text'],
+							username = data.items[key]['username'],
+							twitpic = data.items[key]['userpic'];
+						items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><img src="'+twitpic+'" /><span>'+username+'</span><a class="btnplus"></a><p>'+text+'</p></div>');
+						break;
 
-				case "synonym":
-					var word = data.items[key]['word'];
-					items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><a class="btnplus"></a>'+word+'</div>');
-					break;
+					case "synonym":
+						var word = data.items[key]['word'];
+						items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><a class="btnplus"></a>'+word+'</div>');
+						break;
 
-				case "vimeo":
-					var idVimeo = data.items[key]['idVimeo'],
-						title =  data.items[key]['title'];
-					items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" data-idVimeo="'+idVimeo+'" style="top: '+posY+'%; left: '+posX+'%; "><h2>'+title+'</h2><a class="btnplus"></a><iframe src="http://player.vimeo.com/video/'+idVimeo+'?byline=0&badge=0&color=222&title=0&portrait=0" width="267" height="170" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>');
-					break;
+					case "vimeo":
+						var idVimeo = data.items[key]['idVimeo'],
+							title =  data.items[key]['title'];
+						items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" data-idVimeo="'+idVimeo+'" style="top: '+posY+'%; left: '+posX+'%; "><h2>'+title+'</h2><a class="btnplus"></a><iframe src="http://player.vimeo.com/video/'+idVimeo+'?byline=0&badge=0&color=222&title=0&portrait=0" width="267" height="170" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>');
+						break;
 
-				case "news":
-					var title = data.items[key]['title'],
-						text = data.items[key]['text'],
-						url = data.items[key]['url'];
-					items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><h2><a href="'+url+'" target="blank">'+title+'</a></h2><a class="btnplus"></a><p>'+text+'</p></div>');
-					break;
+					case "news":
+						var title = data.items[key]['title'],
+							text = data.items[key]['text'],
+							url = data.items[key]['url'];
+						items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><h2><a href="'+url+'" target="blank">'+title+'</a></h2><a class="btnplus"></a><p>'+text+'</p></div>');
+						break;
 
-				case "dribbble":
-					var title = data.items[key]['title'],
-						full = data.items[key]['full'],
-						thumbnail = data.items[key]['thumbnail'];
-					items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><h2>'+title+'</h2><a class="btnplus"></a><a class="link-full" href="'+full+'"><img class="thumbnail" src="'+thumbnail+'" /></a></div>');
-					break;
+					case "dribbble":
+						var title = data.items[key]['title'],
+							full = data.items[key]['full'],
+							thumbnail = data.items[key]['thumbnail'];
+						items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><h2>'+title+'</h2><a class="btnplus"></a><a class="link-full" href="'+full+'"><img class="thumbnail" src="'+thumbnail+'" /></a></div>');
+						break;
 
-				case "pinterest":
-					var full = data.items[key]['full'],
-						thumbnail = data.items[key]['thumbnail'];
-					items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><a class="btnplus"></a><a class="link-full" href="'+full+'"><img class="thumbnail" src="'+thumbnail+'" /></a></div>');
-					break;
-			}
+					case "pinterest":
+						var full = data.items[key]['full'],
+							thumbnail = data.items[key]['thumbnail'];
+						items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><a class="btnplus"></a><a class="link-full" href="'+full+'"><img class="thumbnail" src="'+thumbnail+'" /></a></div>');
+						break;
+				}
 
-			$("#container").html(items.join(''));
-			$( ".draggable" ).draggable({
-				stop: function( event, ui ) {jsonCreator(event, ui);},
-				// containment: "parent",
-			}).trigger('dragstop');
+				$("#container").html(items.join(''));
+				$( ".draggable" ).draggable({
+					stop: function( event, ui ) {jsonCreator(event, ui);},
+					// containment: "parent",
+				}).trigger('dragstop');
 
-			$(".btnplus").click(function(e){
-				if (confirm("Do you really want to delete this item ?")) { // Clic sur OK
-					$(this).parent().fadeOut(500, function(){
-						$(this).remove();
-					});
-					jsonCreator();
-					return false;
-				}	
+				$(".btnplus").click(function(e){
+					if (confirm("Do you really want to delete this item ?")) { // Clic sur OK
+						$(this).parent().fadeOut(500, function(){
+							$(this).remove();
+						});
+						jsonCreator();
+						return false;
+					}	
+				});
+
+
 			});
-
-
 		});
+
    }
 
 
