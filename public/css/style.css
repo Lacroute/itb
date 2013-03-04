@@ -530,31 +530,24 @@ h2 {
   -o-animation-name: ui-spinner-rotate-right;
   animation-name: ui-spinner-rotate-right;
 }
-.animeLoaderLeft{
-  
-}
-.animeLoaderRight{
 
-  
-}
-
-.example-hole {
-  width: 100px;
+.loader {
+  width: 104px;
   float:left;
-  height: 100px;
+  height: 104px;
   position:absolute;
   left:25px;
   top:25px;
 }
 
-.example-hole .ui-spinner {
+.loader .ui-spinner {
   width: 100px;
   height: 100px;
   background: #343939;
   border:2px solid #343939;
 }
 
-.example-hole .ui-spinner .side .fill {
+.loader .ui-spinner .side .fill {
   -webkit-animation-duration: 3s;
   -moz-animation-duration: 3s;
   -ms-animation-duration: 3s;
@@ -562,7 +555,7 @@ h2 {
   animation-duration: 3s;
 }
 
-.example-hole .ui-spinner:after {
+.loader .ui-spinner:after {
   content: "";
   position: absolute;
   width: 76px;
@@ -573,65 +566,86 @@ h2 {
   display: block;
 }
 
-#column1 .example-hole .ui-spinner .side .fill {
+#column1 .loader {
+  background:url(../images/sprite.png);
+  background-position: -48px -614px;
+}
+
+#column1 .loader .ui-spinner .side .fill {
   background: #e68c00;
 }
 
-#column1 .example-hole .ui-spinner:after {
+#column1 .loader .ui-spinner:after {
   background:url(../images/sprite.png);
   background-position: -359px -561px;
 }
 
-#column2 .example-hole .ui-spinner .side .fill {
+#column2 .loader {
+  background:url(../images/sprite.png);
+  background-position: -48px -22px;
+}
+
+#column2 .loader .ui-spinner .side .fill {
   background: #00aced;
 }
 
-#column2 .example-hole .ui-spinner:after {
+#column2 .loader .ui-spinner:after {
   background:url(../images/sprite.png);
   background-position: -359px -257px;
 }
 
-#column3 .example-hole .ui-spinner .side .fill {
+#column3 .loader {
+  background:url(../images/sprite.png);
+  background-position: -48px -170px;
+}
+
+#column3 .loader .ui-spinner .side .fill {
   background: #167979;
 }
 
-#column3 .example-hole .ui-spinner:after {
+#column3 .loader .ui-spinner:after {
   background:url(../images/sprite.png);
   background-position: -359px -333px;
 }
 
-#column4 .example-hole .ui-spinner .side .fill {
+#column4 .loader {
+  background:url(../images/sprite.png);
+  background-position: -48px -318px;
+}
+
+#column4 .loader .ui-spinner .side .fill {
   background: #ca1f28;
 }
 
-#column4 .example-hole .ui-spinner:after {
+#column4 .loader .ui-spinner:after {
   background:url(../images/sprite.png);
   background-position: -359px -409px;
 }
 
-#column3 .example-hole .ui-spinner .side .fill {
-  background: #167979;
-}
-
-#column3 .example-hole .ui-spinner:after {
+#column5 .loader {
   background:url(../images/sprite.png);
-  background-position: -359px -333px;
+  background-position: -48px -466px;
 }
 
-#column5 .example-hole .ui-spinner .side .fill {
+#column5 .loader .ui-spinner .side .fill {
   background: #f875a5;
 }
 
-#column5 .example-hole .ui-spinner:after {
+#column5 .loader .ui-spinner:after {
   background:url(../images/sprite.png);
   background-position: -359px -485px;
 }
 
-#column6 .example-hole .ui-spinner .side .fill {
+#column6 .loader {
+  background:url(../images/sprite.png);
+  background-position: -48px -762px;
+}
+
+#column6 .loader .ui-spinner .side .fill {
   background: white;
 }
 
-#column6 .example-hole .ui-spinner:after {
+#column6 .loader .ui-spinner:after {
   background:url(../images/sprite.png);
   background-position: -359px -637px;
 }
