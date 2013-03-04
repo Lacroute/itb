@@ -119,7 +119,7 @@ $(document).ready(function() {
 
 		$.ajax({
 			type: "POST",
-			url: baseUrl+"/dashboard/"+brainId+"/edit",
+			url: baseUrl+"/"+brainId+"/edit",
 			data: {json: json},
 			success: function(){
 				console.log("SUCCES");
@@ -192,8 +192,9 @@ $(document).ready(function() {
 					if (confirm("Do you really want to delete this item ?")) { // Clic sur OK
 						$(this).parent().fadeOut(500, function(){
 							$(this).remove();
+							jsonCreator();
 						});
-						jsonCreator();
+						
 						return false;
 					}	
 				});
