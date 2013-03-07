@@ -8,6 +8,54 @@ $(document).ready(function() {
 			var heightWindow=window.innerHeight;
 			var margeTop;
 			var margeLeft;
+			var iframWidth;
+			var iframeHeight;
+
+			$('#container').click(function(){
+				show();
+			});
+
+			$('#twitter').click(function(){
+				hide();
+				$("div[data-type='tweet']").css({"z-index" : 2});
+				$("div[data-type='tweet']").css({"opacity" : 1});
+			});
+			$('#vimeo').click(function(){
+				hide();
+				$("div[data-type='vimeo']").css({"z-index" : 2});
+				$("div[data-type='vimeo']").css({"opacity" : 1});
+			});
+			$('#pinterest').click(function(){
+				hide();
+				$("div[data-type='pinterest']").css({"z-index" : 2});
+				$("div[data-type='pinterest']").css({"opacity" : 1});
+			});
+			$('#dribble').click(function(){
+				hide();
+				$("div[data-type='dribbble']").css({"z-index" : 2});
+				$("div[data-type='dribbble']").css({"opacity" : 1});
+			});
+			$('#synonym').click(function(){
+				hide();
+				$("div[data-type='synonym']").css({"z-index" : 2});
+				$("div[data-type='synonym']").css({"opacity" : 1});
+			});
+			$('#news').click(function(){
+				hide();
+				$("div[data-type='news']").css({"z-index" : 2});
+				$("div[data-type='news']").css({"opacity" : 1});
+			});
+
+
+			function hide(){
+				$('#container div').css({"z-index" : 1});
+				$('#container div').css({"opacity" : 0.5});
+			}
+
+			function show(){
+				$('#container div').css({"z-index" : 1});
+				$('#container div').css({"opacity" : 1});
+			}
 
 			$('#wrapper').height(heightWindow);
 			$("#container").width(widthWindow*4);
@@ -18,7 +66,6 @@ $(document).ready(function() {
 		   		widthDiv = $('#container').width()*1.2;
 		   		heightDiv = $('#container').height()*1.2;
 		   		widthDivs = $('.blocs').width()*1.2;
-		   		// heightDivs = $('.blocs').height()*1.2;
 		   		updateSize();
 			});
 
@@ -26,7 +73,6 @@ $(document).ready(function() {
 		   		widthDiv = $('#container').width()/1.2;
 		   		heightDiv = $('#container').height()/1.2;
 		   		widthDivs = $('.blocs').width()/1.2;
-		   		// heightDivs = $('.blocs').height()/1.2;
 				updateSize();
 			});
 
@@ -44,7 +90,6 @@ $(document).ready(function() {
 			   		$('#container').width(widthDiv);
 					$('#container').height(heightDiv);
 					$('.blocs').width(widthDivs);
-					// $('.blocs').height(heightDivs);
 					positionMap();
 			    }else{
 			   		alert("Can't zoom anymore");
@@ -147,7 +192,7 @@ $(document).ready(function() {
 						var text = data.items[key]['text'],
 							username = data.items[key]['username'],
 							twitpic = data.items[key]['userpic'];
-						items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><img src="'+twitpic+'" /><span>'+username+'</span><a class="btnplus"></a><p>'+text+'</p></div>');
+						items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><span>'+username+'</span><a class="btnplus"></a><p>'+text+'</p></div>');
 						break;
 
 					case "synonym":
