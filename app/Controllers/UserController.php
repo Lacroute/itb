@@ -8,15 +8,16 @@ class UserController{
 	function create(){
 		switch(F3::get('VERB')){
 		case 'GET':
-        	echo Views::instance()->render('create.php');
+        	F3::reroute('/dashboard');
       		break;
       	case 'POST':
       		$check = array('pseudo'=>'required', 'email'=>'required','password'=>'required');
+      		F3::set('POST', Datas::instance()->secure(F3::get('POST')));
 	        $error = Datas::instance()->check(F3::get('POST'),$check);
 	        if($error){
-	          F3::set('errorMsg',$error);
-	          echo Views::instance()->render('login.php');
-	          return;
+				F3::set('errorMsg',$error);
+				echo Views::instance()->render('securite.html');
+				return;
 	        }
       		$data = array(
 				"pseudo" => F3::get('POST.pseudo'),
@@ -37,24 +38,26 @@ class UserController{
     		break;
     	case 'POST':
 	        $check=array('email'=>'required','password'=>'required');
+	        F3::set('POST', Datas::instance()->secure(F3::get('POST')));
 	        $error=Datas::instance()->check(F3::get('POST'),$check);
 	        if($error){
-	          F3::set('errorMsg',$error);
-	          echo Views::instance()->render('login.php');
-	          return;
+				F3::set('errorMsg',$error);
+				var_dump(F3::get('errorMsg'));
+				echo Views::instance()->render('securite.html');
+				return;
 	        }
 	        $data = array(
 	        	'email' => F3::get('POST.email'),
 	        	'password' => F3::get('POST.password')
 	        );
 	        if($user = UserModel::instance()->getUser($data)){
-	          F3::set('SESSION.idUser',$user['idUser']);
-	          F3::set('SESSION.pseudo',$user['pseudo']);
-	          F3::reroute('/dashboard');
-	          return;
+				F3::set('SESSION.idUser',$user['idUser']);
+				F3::set('SESSION.pseudo',$user['pseudo']);
+				F3::reroute('/dashboard');
+				return;
 	        }
 	        F3::set('errorMsg',array('email'=>true,'password'=>true));
-	        echo Views::instance()->render('login.php');
+	        echo Views::instance()->render('securite.html');
     		break;
     	}
 	}

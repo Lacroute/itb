@@ -39,6 +39,14 @@ class Datas extends Prefab{
     }
     return $checked;
   }
+
+  function secure($datas){
+      $safeDatas = array();
+     foreach($datas as $data=>$value){
+        $safeDatas[$data] =  strip_tags(mysql_real_escape_string(htmlentities($value)));
+     }
+     return $safeDatas;
+  }
   
 
 

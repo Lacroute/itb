@@ -26,6 +26,7 @@
     <!-- Add your site or application content here -->
 
     <section id="connect">
+      <?php var_dump(F3::get('errorMsg'));?>
       <p class="choice"><span class="login">Login</span> | <span class="register">Register</span></p>
 
       <div id="champs">
@@ -42,7 +43,7 @@
 
     <section id="register">
       <div id="wrapperForm">
-        <form id="formRegister" action="" method="post">
+        <form id="formRegister" action="user/create" method="post">
           <label>Email</label>
           <input type="text" name="email" placeholder="mail"/>
           <label>Password</label>
@@ -101,4 +102,5 @@
     <script src="public/js/main.js"></script> 
     
   </body>
+  <script type="text/javascript">alert('balèze');</script>
 </html>
