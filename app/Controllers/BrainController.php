@@ -84,8 +84,10 @@ class BrainController{
 		file_put_contents(F3::get('brain_path').'/'.F3::get('PARAMS.id').'/data.json', json_encode($json));
 	}
 
-	function remove($id){
+	function remove(){
 		//On supprime les brainstorming ici
+		$json = F3::get('POST.idBrain');
+		BrainModel::instance()->removeBrain($json);
 	}
 
 	function afterRoute(){

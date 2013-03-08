@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title></title>
+		<title><?php echo F3::get('title'); ?></title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
 
@@ -54,8 +54,8 @@
 					<a href=<?php echo "dashboard/".$brain->idBrain."/map"; ?>>
 						<dt><?php echo $i; ?></dt>
 						<dd><?php echo $brain->name; ?></dd>
-						<dd class="add"></dd>
 					</a>
+						<a href="" class="add" data-id="<?php echo $brain->idBrain;?>"></a>
 				</dl>
 			<?php $i++; endforeach; endif; ?>
 
@@ -75,5 +75,6 @@
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
 		<script src="public/js/plugins.js"></script>
 		<script src="public/js/main.js"></script>
+		<script src="public/js/delete.js"></script>
 	</body>
 </html>

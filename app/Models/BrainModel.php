@@ -31,7 +31,9 @@ class BrainModel extends Prefab{
 	}
 
 	function removeBrain($id){
-		
+		$brain=new DB\SQL\Mapper(F3::get('dB'),'brain');
+		$brain->load(array('idBrain=?', $id));
+		$brain->erase();
 	}
 
 	function __destruct(){
