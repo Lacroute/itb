@@ -31,9 +31,9 @@
       <div id="champs">
         <form action="user/login" method="post">
           <label>Email</label>
-          <input type="text" name="email" placeholder="mail"/>
+          <input type="email" name="email"  pattern="[^ @]*@[^ @]*" placeholder="mail" required/>
           <label>Password</label>
-          <input type="password" name="password" placeholder="password"/>
+          <input type="password" name="password" placeholder="password"required/>
           <input type="submit" value="Connect" /> 
         </form>
         <a href=""><span class="close"></span></a>
@@ -44,11 +44,11 @@
       <div id="wrapperForm">
         <form id="formRegister" action="user/create" method="post">
           <label>Email</label>
-          <input type="text" name="email" placeholder="mail"/>
+          <input type="emails" name="email" pattern="[^ @]*@[^ @]*" placeholder="mail"/required>
           <label>Password</label>
-          <input type="password" name="password" placeholder="password"/>
+          <input type="password" name="password" placeholder="password" required/>
           <label>Confirm</label>
-          <input type="password" name="password" placeholder="password"/>
+          <input type="password" name="password" placeholder="password" required/>
           <input type="submit" value="Create" /> 
         </form>
         <a href=""><span class="close"></span></a>

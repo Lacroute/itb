@@ -83,3 +83,6 @@ footer p {width: 800px; text-align: center; margin: 0 auto; padding: 10px 0 0; c
 #content a, #content a:visited, #content a:active {color:#262626;}
 #content .add {position:absolute;top:1px;right:1px;cursor:pointer;height:30px;width:30px;background:url(../images/sprite.png);background-position: right -180px;}
 
+
+
+input:required:valid{background:#fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAD2UExURfn7+WCmV2mvX/j7+Pn7+J/KmonOfp7JmY3OgIfNfIvPf22zY2qyYGqwYD+DOVmgUVqiUmiuXvr8+YLLePn8+ILKd0CFOVyjVIHKdmSsW2etXNbs04XLefj694HJdlqmUV+lVqnLpaLEnzp+NMPivlyjU1GaSXa9bGOwWXnAbT2DN9zv2WGnWDyANobMfIrOf9jt1Y/Rgn7IdI3PgYPJeKnOpYnNfff691ynU1efT4XIekeOQD2BN7nbtTp9ND6CODl9M221Y57ImV2kVGyyYqDJnJ3ImbXWsm20Y3a9a53HmJDShIfMe3W9bIXJeobJeTt/Nf///4Hh6TYAAABSdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////wCtLQxxAAAAjklEQVR42mIIRAMMeAVYTVEFWLmZFJEF2F0MrRiVEAJOvMZcOmIMQAEDFRDfjUmfjZGPAahF21fTNjDQS9CMU8EeKM0gre7PYeHuKqUn42wD0s8gpOHp7cfjYSKsqssAcYeIvCObj4ScQAADzGHMapKiRvzKLAiXMluLWzqwIDtdVsuOAdUv5gy4fQsQYACU7kAA7L/JrQAAAABJRU5ErkJggg==') no-repeat 280px center;}

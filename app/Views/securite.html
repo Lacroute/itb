@@ -25,14 +25,16 @@
 
     <!-- Add your site or application content here -->
     <section id="register">
+
       <div id="wrapperForm">
+        <a href="/itb/">Back home</a>
         <?php if(F3::get('errorType')=="login"):?>
         <p>Mauvais email ou mauvais mot de passe.</p>
         <form id="formRegister" action="/itb/user/login" method="post">
           <label>Email</label>
-          <input type="text" name="email" placeholder="mail"/>
+          <input type="email" name="email"  pattern="[^ @]*@[^ @]*"  placeholder="mail" required/>
           <label>Password</label>
-          <input type="password" name="password" placeholder="password"/>
+          <input type="password" name="password" placeholder="password" required/>
           <input type="submit" value="Connect" /> 
         </form>
       <?php elseif(F3::get('errorType')=="create" || F3::get('errorType')=="duplicat"):?>
@@ -43,11 +45,11 @@
         <?php endif;?>
         <form id="formRegister" action="/itb/user/login" method="post">
           <label>Email</label>
-          <input type="text" name="email" placeholder="mail"/>
+          <input type="email" name="email"  pattern="[^ @]*@[^ @]*"  placeholder="mail" required/>
           <label>Password</label>
-          <input type="password" name="password" placeholder="password"/>
+          <input type="password" name="password" placeholder="password" required/>
           <label>Confirm</label>
-          <input type="password" name="password" placeholder="password"/>
+          <input type="password" name="password" placeholder="password" required/>
           <input type="submit" value="Create" /> 
         </form>
       <?php endif;?>
