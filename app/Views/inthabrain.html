@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <title><?php echo F3::get('title'); ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -26,7 +26,6 @@
     <!-- Add your site or application content here -->
 
     <section id="connect">
-      <?php var_dump(F3::get('errorMsg'));?>
       <p class="choice"><span class="login">Login</span> | <span class="register">Register</span></p>
 
       <div id="champs">
@@ -102,5 +101,4 @@
     <script src="public/js/main.js"></script> 
     
   </body>
-  <script type="text/javascript">alert('balèze');</script>
 </html>

@@ -10,7 +10,11 @@ class UserModel extends Prefab{
 		$user->pseudo = $data['pseudo'];
 		$user->email = $data['email'];
 		$user->password = md5($data['password']);
-		$user->save();
+		echo F3::get('ERROR.code');
+		// if(mysqli_query() == 1062){
+			$user->save();
+
+		// }
 		return true;
 	}
 

@@ -2,7 +2,6 @@
 class UserController{
 	
 	function __construct(){
-
 	}
 
 	function create(){
@@ -16,6 +15,8 @@ class UserController{
 	        $error = Datas::instance()->check(F3::get('POST'),$check);
 	        if($error){
 				F3::set('errorMsg',$error);
+				F3::set('errorType','create');
+				F3::set('title','Problème de création');
 				echo Views::instance()->render('securite.html');
 				return;
 	        }
@@ -42,7 +43,8 @@ class UserController{
 	        $error=Datas::instance()->check(F3::get('POST'),$check);
 	        if($error){
 				F3::set('errorMsg',$error);
-				var_dump(F3::get('errorMsg'));
+				F3::set('errorType','login');
+				F3::set('title','Problème de connexion');
 				echo Views::instance()->render('securite.html');
 				return;
 	        }
@@ -57,6 +59,8 @@ class UserController{
 				return;
 	        }
 	        F3::set('errorMsg',array('email'=>true,'password'=>true));
+	        F3::set('title','Problème de connexion');
+	        F3::set('errorType','login');
 	        echo Views::instance()->render('securite.html');
     		break;
     	}

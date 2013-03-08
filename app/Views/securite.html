@@ -6,17 +6,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <title><?php echo F3::get('title'); ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="public/css/normalize.css">
-    <link rel="stylesheet" href="public/css/main.css">
-    <link rel="stylesheet" href="http://localhost/itb/public/css/stylesheet.css">
+    <link rel="stylesheet" href="/itb/public/css/normalize.css">
+    <link rel="stylesheet" href="/itb/public/css/main.css">
+    <link rel="stylesheet" href="/itb/public/css/stylesheet.css">
     <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <script src="public/js/modernizr-2.6.2.min.js"></script>
+    <script src="/itb/public/js/modernizr-2.6.2.min.js"></script>
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -24,10 +24,24 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-
     <section id="register">
       <div id="wrapperForm">
-        <form id="formRegister" action="" method="post">
+        <?php if(F3::get('errorType')=="login"):?>
+        <p>Mauvais email ou mauvais mot de passe.</p>
+        <form id="formRegister" action="/itb/user/login" method="post">
+          <label>Email</label>
+          <input type="text" name="email" placeholder="mail"/>
+          <label>Password</label>
+          <input type="password" name="password" placeholder="password"/>
+          <input type="submit" value="Connect" /> 
+        </form>
+      <?php elseif(F3::get('errorType')=="create" || F3::get('errorType')=="duplicat"):?>
+        <?php if(F3::get('errorType')=="create"):?>
+        <p>Erreur lors de la création, vérifiez vos mot de passe.</p>
+        <?php else:?>
+        <p>Erreur lors de la création, l'email est déjà utilisé.</p>
+        <?php endif;?>
+        <form id="formRegister" action="/itb/user/login" method="post">
           <label>Email</label>
           <input type="text" name="email" placeholder="mail"/>
           <label>Password</label>
@@ -36,12 +50,12 @@
           <input type="password" name="password" placeholder="password"/>
           <input type="submit" value="Create" /> 
         </form>
+      <?php endif;?>
       </div>
+
     </section>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script>window.jQuery || document.write('<script src="public/js/jquery-1.9.0.min.js"><\/script>')</script>
-    <script src="public/js/plugins.js"></script>
-    <script src="public/js/main.js"></script> 
-    
+    <script src="/itb/public/js/plugins.js"></script>
   </body>
 </html>

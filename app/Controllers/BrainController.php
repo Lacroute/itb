@@ -12,6 +12,7 @@ class BrainController{
       		break;
       	case 'POST':
       	    $check=array('name-input'=>'required','search-input'=>'required');
+      	    F3::set('POST', Datas::instance()->secure(F3::get('POST')));
 	        $error=Datas::instance()->check(F3::get('POST'),$check);
 	        if($error){
 	          F3::set('errorMsg',$error);
@@ -55,6 +56,7 @@ class BrainController{
 	    	break;
 	    case 'POST':
 	    	$check=array('baseWord'=>'required');
+	    	F3::set('POST', Datas::instance()->secure(F3::get('POST')));
 	        $error=Datas::instance()->check(F3::get('POST'),$check);
 	        if($error){
 	          F3::set('errorMsg',$error);
@@ -67,7 +69,7 @@ class BrainController{
   	}
 
   	function addItem(){
-  		var_dump(F3::get('POST'));
+  		F3::set('POST', Datas::instance()->secure(F3::get('POST')));
   		$item = F3::get('POST');
   		$jsonFile = fopen(F3::get('brain_path').'/'.F3::get('PARAMS.id').'/data.json', 'r+');
   		$jsonArray = json_decode(fgets($jsonFile), true);
@@ -77,6 +79,7 @@ class BrainController{
   	}
 
 	function edit(){
+		F3::set('POST', Datas::instance()->secure(F3::get('POST.json')));
 		$json = F3::get('POST.json');
 		file_put_contents(F3::get('brain_path').'/'.F3::get('PARAMS.id').'/data.json', json_encode($json));
 	}
