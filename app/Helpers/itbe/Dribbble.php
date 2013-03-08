@@ -9,13 +9,7 @@ class Dribbble extends api{
 	$dribble = new itbe\Dribble();
 	$dribble->search('word');
 	*/
-	function search($keyword){
-
-
-			//if(isset($_GET['q']) && isset($_GET['s'])){
-			//$query = $_GET['q'];
-			//$sort = $_GET['s'];
-			
+	function search($keyword){	
 			$url = "http://dribbble.com/search?q=".$keyword."&s=latest";/*.$sort; //s = 'latest' or ''*/
 			 
 			$curl = curl_init();
@@ -26,22 +20,6 @@ class Dribbble extends api{
 			$response = curl_exec($curl);
 			curl_close($curl);
 			
-			/*
-			$web = new \Web;
-			$result = $web->request(
-				"http://dribbble.com/search?q=".$keyword."&s=latest",
-				array(
-				'headers'=>array(
-						'Accept: text/html,application/xhtml+xml,application/xml',
-						'Accept-Language: en-us'
-					),
-					'follow_location'=>FALSE,
-					'max_redirects'=>30,
-					'ignore_errors'=>TRUE
-				)
-			);
-*/
-
 			$dom = new \DOMDocument();
 			@$dom->loadHTML($response); // le @ n'affiche pas d'erreur
 			

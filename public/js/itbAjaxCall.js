@@ -121,7 +121,7 @@ function ajaxRequest(event){
         parent.append(dd);
       }
 
-      $('#twitterLoader').fadeOut(500, function() {$(this).remove();});
+      $('#synonymsLoader').fadeOut(500, function() {$(this).remove();});
     }
 
     function twitterGenerator(data){

@@ -7,34 +7,7 @@ class SearchController{
 	}
 
 	function search(){
-		$keyword = F3::get('POST.baseWord');
-		$keyword = 'love';
-		
-		$synonyms = new itbe\Synonyms();
-	    $dribbble = new itbe\Dribbble();
-		$pinterest = new itbe\Pinterest();
-		$news = new itbe\News();
-		$vimeo = new itbe\Vimeo();
-		$twitter = new itbe\Twitter();
-
-		F3::mset(
-		    array(
-		    	'pinterest'=>$pinterest->search($keyword),
-		    	'vimeo'=>$vimeo->search($keyword),
-		    	'twitter'=>$twitter->search($keyword),
-		    	'synonyms'=>$synonyms->search($keyword),
-		        'dribbble'=>$dribbble->search($keyword),
-		        'news'=>$news->search($keyword)
-		    )
-		);
-	}
-
-	function searchForAjax(){
-		$api = F3::get('PARAMS.api');
-
-		$keyword = F3::get('POST.baseWord');
-
-		switch ($api) {
+		switch (F3::get('PARAMS.api')) {
 			case 'synonyms':
 				$result = new itbe\Synonyms();
 				break;
@@ -54,15 +27,35 @@ class SearchController{
 				$result = new itbe\Vimeo();
 				break;
 			default:
-				$result = 'Petit Malin';
+				$result = 'PETIT MALIN';
 				break;
 		}
+		
+		switch (F3::get('VERB')) {
+			case 'GET':
+				$this->searchForOther($result);
+				break;
+			
+			case 'POST':
+				$this->searchForAjax($result);
+				break;
+
+		}
+	}
+
+	function searchForOther($api){
 		header('Cache-Control: no-cache, must-revalidate');
 		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 		header('Content-type: application/json');
-		echo $result->search($keyword);
+		print_r($api->search(F3::get('PARAMS.word')));
 	}
 
+	function searchForAjax($api){
+		header('Cache-Control: no-cache, must-revalidate');
+		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+		header('Content-type: application/json');
+		echo $api->search(F3::get('POST.baseWord'));
+	}
 
 	function __destruct(){
 
