@@ -59,9 +59,9 @@ class BrainController{
 	    	F3::set('POST', Datas::instance()->secure(F3::get('POST')));
 	        $error=Datas::instance()->check(F3::get('POST'),$check);
 	        if($error){
-	          F3::set('errorMsg',$error);
-	          F3::reroute('/dashboard/'.F3::get('PARAMS.id').'/map');
-	          return;
+				F3::set('errorMsg',$error);
+				F3::reroute('/dashboard/'.F3::get('PARAMS.id').'/map');
+				return;
 	        }
 	        F3::reroute('/dashboard/'.F3::get('PARAMS.id').'/search/'.F3::get('POST.baseWord'));
 	        break;
@@ -70,8 +70,6 @@ class BrainController{
 
   	function addItem(){
   		F3::set('POST', Datas::instance()->secure(F3::get('POST')));
-  		// var_dump(F3::get('POST'));
-  		// die();
   		$item = F3::get('POST');
   		$jsonFile = fopen(F3::get('brain_path').'/'.F3::get('PARAMS.id').'/data.json', 'r+');
   		$jsonArray = json_decode(fgets($jsonFile), true);
@@ -90,6 +88,24 @@ class BrainController{
 		//On supprime les brainstorming ici
 		$json = F3::get('POST.idBrain');
 		BrainModel::instance()->removeBrain($json);
+
+		function Delete($path){
+			if (is_dir($path) === true){
+				$files = array_diff(scandir($path), array('.', '..'));
+				foreach ($files as $file){
+					Delete(realpath($path) . '/' . $file);
+				}
+				return rmdir($path);
+			}
+
+			else if (is_file($path) === true){
+				return unlink($path);
+			}
+
+			return false;
+		}
+		$pathToErase = F3::get('brain_path').'/'.$json;
+		Delete($pathToErase);
 	}
 
 	function afterRoute(){
