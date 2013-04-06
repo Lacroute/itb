@@ -80,8 +80,6 @@ class BrainController{
 
 	function edit(){
 		$json = F3::get('POST.json');
-		var_dump($json);
-		die();
 		foreach ($json['items'] as $key=>$value) {
 			$json['items'][$key] = Datas::instance()->secure($value);
 		}
