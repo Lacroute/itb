@@ -26,7 +26,15 @@
     <!-- Add your site or application content here -->
 
     <section id="connect">
-      <p class="choice"><span class="login">Login</span> | <span class="register">Register</span></p>
+      <p class="choice">
+
+        
+        <?php if($_SESSION){ ?>
+                <span><a href="<?php echo F3::get("baseUrl"); ?>/dashboard">Dashboard</a></span>
+              <?php }else{ ?>
+                <span class="login">Login</span> | <span class="register">Register</span>
+              <?php } ?>
+      </p>
 
       <div id="champs">
         <form action="user/login" method="post">

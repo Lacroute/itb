@@ -10,6 +10,8 @@ p {font-size: 73%;}
 #connect span { color:#262626;text-decoration:none; font-family: 'Arvo', serif; font-size:14px;display:inline-block;padding:0 10px;line-height:50px;margin:0;}
 #connect span:hover {background:#262626;color:#ebe261;cursor:pointer;}
 #connect p {margin:0;}
+#connect p a{color: #000;}
+#connect p span:hover a{color: #FFF;}
 .connect {margin-top:0 !important; -webkit-transition: all .6s ease-in; -moz-transition: all .6s ease-in; -o-transition: all .6s ease-in; transition: all .6s ease-in;}
 #champs {padding-top:11px;display:inline-block;width:100%;text-align:center;}
 #champs form {display:inline-block;}
