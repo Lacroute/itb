@@ -121,15 +121,14 @@ $(document).ready(function() {
 			switch(type){
 
 				case "news":
-					var 
-						title = $('h2 a', this).html(),
+					var title = $('h2 a', this).html(),
 						text = $('p', this).html(),
 						url = $('h2 a', this).attr('href');
 						json['items'].push({type: type, title: title, text: text, url: url, posX: posX, posY: posY});
 					break;
 
 				case "synonym":
-					var word = $(this).html();
+					var word = $("span",this).html();
 						json['items'].push({type: type, word: word, posX: posX, posY: posY});
 					break;
 
@@ -197,7 +196,7 @@ $(document).ready(function() {
 
 					case "synonym":
 						var word = data.items[key]['word'];
-						items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><a class="btnplus"></a>'+word+'</div>');
+						items.push('<div class="draggable '+classType+' blocs" data-id="'+itemId+'" data-type="'+classType+'" style="top: '+posY+'%; left: '+posX+'%; "><a class="btnplus"></a><span>'+word+'</span></div>');
 						break;
 
 					case "vimeo":
