@@ -79,8 +79,12 @@ class BrainController{
   	}
 
 	function edit(){
-		F3::set('POST', Datas::instance()->secure(F3::get('POST.json')));
 		$json = F3::get('POST.json');
+		var_dump($json);
+		die();
+		foreach ($json['items'] as $key=>$value) {
+			$json['items'][$key] = Datas::instance()->secure($value);
+		}
 		file_put_contents(F3::get('brain_path').'/'.F3::get('PARAMS.id').'/data.json', json_encode($json));
 	}
 
