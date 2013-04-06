@@ -31,7 +31,7 @@ class BrainController{
 			$jsonData = array(
 				"idUser" => F3::get('SESSION.idUser'),
 				"brainName" => $data['name'],
-				"items" => '[]',
+				"items" => [],
 			);
 			fwrite($jsonFile, json_encode($jsonData));
 			fclose($jsonFile);
@@ -70,6 +70,8 @@ class BrainController{
 
   	function addItem(){
   		F3::set('POST', Datas::instance()->secure(F3::get('POST')));
+  		// var_dump(F3::get('POST'));
+  		// die();
   		$item = F3::get('POST');
   		$jsonFile = fopen(F3::get('brain_path').'/'.F3::get('PARAMS.id').'/data.json', 'r+');
   		$jsonArray = json_decode(fgets($jsonFile), true);

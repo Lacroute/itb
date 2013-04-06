@@ -12,7 +12,7 @@ function newSearch(event){
 
 function addItem(event){
   var postdata = [];
-  var data = event.data.item
+  var data = event.data.item;
   var dataType = $(this).attr('data-type');
   switch(dataType){
     case 'synonym':
@@ -41,7 +41,6 @@ function addItem(event){
     postdata,
     "json"            
   );
-  console.log($(this).parent());
   $(this).parent().fadeOut(500, function() { $(this).remove(); });
   return false;
 }
